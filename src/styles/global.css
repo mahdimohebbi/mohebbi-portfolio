@@ -178,8 +178,6 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   background: var(--color-green);
   display: block;
 }
-.clock { color: var(--color-text-primary); font-variant-numeric: tabular-nums; }
-
 .section { padding: 88px 0; }
 .kicker {
   color: var(--color-accent);

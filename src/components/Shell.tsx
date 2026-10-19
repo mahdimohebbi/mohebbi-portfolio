@@ -58,27 +58,8 @@ function Icon({ name }: { name: string }) {
   );
 }
 
-function useClock() {
-  const [time, setTime] = useState("");
-  useEffect(() => {
-    const tick = () => {
-      setTime(
-        new Date().toLocaleTimeString("en-US", {
-          hour: "numeric",
-          minute: "2-digit",
-        }),
-      );
-    };
-    tick();
-    const id = window.setInterval(tick, 1000 * 20);
-    return () => window.clearInterval(id);
-  }, []);
-  return time;
-}
-
 export function Shell({ children }: { children: ReactNode }) {
   const { pathname, hash } = useLocation();
-  const time = useClock();
   const [theme, setTheme] = useState(document.documentElement.dataset.theme === "light" ? "light" : "dark");
   const [active, setActive] = useState("about");
 
@@ -137,10 +118,6 @@ export function Shell({ children }: { children: ReactNode }) {
           <span className="available">
             <i /> Available
           </span>
-          <span>US</span>
-          <time className="clock" dateTime={time}>
-            {time}
-          </time>
         </div>
       </header>
       )}
