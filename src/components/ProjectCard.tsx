@@ -22,8 +22,11 @@ export function ProjectCard({ project, layout }: { project: Project; layout?: Pr
             <span>{project.role}</span>
           </div>
           <span className="arrow" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" />
+            <svg className="arrow-right" width="18" height="18" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <svg className="arrow-up" width="18" height="18" viewBox="0 0 16 16" fill="none">
+              <path d="M4.5 11.5 11.5 4.5M6 4.5h5.5V10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
         </div>

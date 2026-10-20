@@ -1,7 +1,7 @@
 export const asset = (file: string) => `/assets/images/${file}`;
 
-export const CV_URL =
-  "https://drive.google.com/file/d/1RjY0RGWsY3-7nPxAaWZGwEg8LQq-Xthc/view?usp=sharing";
+export const CV_URL = "/assets/Resume-mohebbi.pdf";
+export const CV_FILENAME = "Resume mohebbi.pdf";
 
 export const socials = [
   { href: "https://gmail.com/", label: "Email", icon: asset("2r0tMSF7EWzSPXNxVDMxk3eqUg.png") },

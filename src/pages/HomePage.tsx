@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ProjectCard } from "../components/ProjectCard";
 import { Testimonials } from "../components/Testimonials";
-import { CV_URL, asset, experience, projects, retainer, services } from "../data/content";
+import { CV_FILENAME, CV_URL, asset, experience, projects, retainer, services } from "../data/content";
 
 export function HomePage() {
   const [progress, setProgress] = useState(8);
@@ -40,8 +40,8 @@ export function HomePage() {
           <p className="lede">
             Product Designer with 5+ years of experience turning complex systems into intuitive, scalable digital products. I don’t just bridge design and strategy. I craft high-impact user experiences from the first concept to the final pixel.
           </p>
-          <a className="cv" href={CV_URL} target="_blank" rel="noreferrer">
-            Download CV
+          <a className="cv" href={CV_URL} download={CV_FILENAME}>
+            Download Resume
           </a>
         </div>
         <div className="lanyard" aria-hidden="true">
