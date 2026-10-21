@@ -1,7 +1,8 @@
 import { FormEvent, useState } from "react";
 import { ProjectCard } from "../components/ProjectCard";
 import { Testimonials } from "../components/Testimonials";
-import { asset, projects, serviceOptions, services, socials } from "../data/content";
+import { asset, projects, serviceOptions, services } from "../data/content";
+import { Socials } from "../components/Socials";
 
 export function ContactPage() {
   const [sent, setSent] = useState(false);
@@ -50,13 +51,7 @@ export function ContactPage() {
             <img className="portrait-lg" src={asset("iNf1aETYjPNKr0YUXZwmPYoK7ZI.png")} alt="Portrait" />
             <span className="tag">AVAILABLE</span>
             <p className="who-line">Zolt Mercer · Design engineer</p>
-            <div className="socials">
-              {socials.map((item) => (
-                <a key={item.label} href={item.href} aria-label={item.label} target="_blank" rel="noreferrer">
-                  <img src={item.icon} alt="" />
-                </a>
-              ))}
-            </div>
+            <Socials />
           </aside>
         </div>
       </section>

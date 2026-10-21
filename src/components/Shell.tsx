@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { asset, socials } from "../data/content";
+import { asset } from "../data/content";
+import { Socials } from "./Socials";
 
 const links = [
   { id: "about", href: "/#about", label: "About", icon: "user" },
@@ -129,13 +130,7 @@ export function Shell({ children }: { children: ReactNode }) {
           <p>Thank you, for visiting here</p>
           <p>Let's create something beautiful</p>
         </div>
-        <div className="socials">
-          {socials.map((item) => (
-            <a key={item.label} href={item.href} aria-label={item.label} target="_blank" rel="noreferrer">
-              <img src={item.icon} alt="" />
-            </a>
-          ))}
-        </div>
+        <Socials />
         <p className="copyline">@Moheb 2026</p>
         </footer>
       </div>
