@@ -510,11 +510,20 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   align-items: center;
   min-height: 260px;
 }
-.quote-card img {
+.quote-card img,
+.quote-fallback {
   width: 180px;
   height: 180px;
   object-fit: cover;
   border-radius: 24px;
+}
+.quote-fallback {
+  display: grid;
+  place-items: center;
+  background: var(--color-badge);
+  color: var(--color-text-secondary);
+  font-size: 32px;
+  font-weight: 600;
 }
 .quote-card h3 {
   font-size: 26px;
@@ -524,7 +533,29 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 }
 .quote-card .name { margin-top: 18px; color: var(--color-text-secondary); }
 .quote-card .by { font-size: 12px; color: var(--color-text-muted); }
-.dots { display: flex; gap: 8px; margin-top: 22px; }
+.quote-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+.quote-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-line);
+  background: transparent;
+  color: var(--color-text-secondary);
+  display: grid;
+  place-items: center;
+  padding: 0;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.quote-arrow:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.dots { display: flex; gap: 8px; }
 .dots button {
   width: 8px;
   height: 8px;
@@ -763,5 +794,5 @@ form button:hover { color: var(--color-text-primary); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .media img, .video-thumb img, .cv, .show-more, .arrow, .foot .arrow svg, .socials a, .index { transition: none; }
+  .media img, .video-thumb img, .cv, .show-more, .quote-arrow, .arrow, .foot .arrow svg, .socials a, .index { transition: none; }
 }

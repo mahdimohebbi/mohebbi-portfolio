@@ -276,19 +276,19 @@ export const testimonials = [
   },
   {
     quote:
-      "Moheb built our entire design system in under a month. Every component was documented, every token was connected.",
-    name: "Priya Nair",
-    role: "Product Lead, Lumio SaaS",
-    photo: asset("ha3LcxKJvi7M8Gj9DpRDKSplUoU.png"),
-    photoAlt: "Priya Nair",
+      "Working with Moheb on product felt easy. He listens, he designs with the real flow in mind, and the files he hands over are already ready to build.",
+    name: "Mohammad Hossein Ahmadi",
+    role: "Product Designer, SnappMarket",
+    photo: asset("mohammad-hossein-ahmadi.jpg"),
+    photoAlt: "Mohammad Hossein Ahmadi",
   },
   {
     quote:
-      "I've hired a lot of freelancers. Moheb is the rare one who actually cares about the craft. He flagged things I hadn't even noticed.",
-    name: "Daniel Hoffmann",
-    role: "CTO, Trackflow HQ",
-    photo: asset("R2ciXKhdnuMP1LL0NQj83MWKno.png"),
-    photoAlt: "Daniel Hoffmann",
+      "As an engineer, Moheb is the designer I trust. The specs were clear, the edge cases were there, and I could build without going back and forth.",
+    name: "Mahdi Saedi",
+    role: "Software Engineer, SetareAval",
+    photo: asset("mahdi-saedi.jpg"),
+    photoAlt: "Mahdi Saedi",
   },
 ];
 
