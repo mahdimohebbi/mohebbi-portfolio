@@ -13,6 +13,109 @@ export const socials = [
   { id: "figma", href: "https://www.figma.com/@mohebbiam", label: "Figma", icon: "/assets/social/figma.png", mono: false },
 ] as const;
 
+export type Video = {
+  id: string;
+  title: string;
+  thumbnail: string;
+  duration: string;
+  date: string;
+  description: string;
+  tag: string;
+};
+
+export const videos: Video[] = [
+  {
+    id: "GwUyg7FzmxI",
+    title: "Figma Variables - وریبل در فیگما",
+    thumbnail: "/assets/videos/GwUyg7FzmxI.jpg",
+    duration: "22:56",
+    date: "Sep 20, 2026",
+    description: "آموزش کامل وریبل‌ها (Variables) در فیگما؛ از صفر تا طراحی تم‌های رنگی و دیزاین سیستم 🧩🎨",
+    tag: "Variables",
+  },
+  {
+    id: "tv3JLCZKdz8",
+    title: "Figma Slot - اسلات در فیگما",
+    thumbnail: "/assets/videos/tv3JLCZKdz8.jpg",
+    duration: "11:35",
+    date: "Aug 21, 2026",
+    description: "توی این ویدیو به سراغ یکی از تکنیک‌های فوق‌العاده کاربردی در ساخت دیزاین سیستم و کامپوننت‌های پیشرفته فیگما یعنی الگوی اسلات (Slot Components) رفتیم.",
+    tag: "Slot",
+  },
+  {
+    id: "RgPlWTEAI04",
+    title: "Figma Effects (Shaders Tutorial) - (Shaders آموزش ) افکت‌ها در فیگما",
+    thumbnail: "/assets/videos/RgPlWTEAI04.jpg",
+    duration: "21:50",
+    date: "Aug 7, 2026",
+    description: "آموزش سیر تا پیاز افکت‌ها، شیدرها و Effect Styles در فیگما 🪄✨",
+    tag: "Effects",
+  },
+  {
+    id: "-V-ewM5004o",
+    title: "استایل‌ها در فیگما - Figma Styles",
+    thumbnail: "/assets/videos/-V-ewM5004o.jpg",
+    duration: "18:08",
+    date: "Jul 25, 2026",
+    description: "آموزش کامل و اصولی استایل‌ها (Styles) در فیگما 🎨🖌️",
+    tag: "Styles",
+  },
+  {
+    id: "xA4r1bJQLpI",
+    title: "Figma Component - آموزش کامپوننت فیگما",
+    thumbnail: "/assets/videos/xA4r1bJQLpI.jpg",
+    duration: "21:57",
+    date: "Jul 18, 2026",
+    description: "یادگیری اصولی کامپوننت‌ها در فیگما؛🔥",
+    tag: "Component",
+  },
+  {
+    id: "sU86ymUEYNU",
+    title: "آموزش فیگما موشن - Figma Motion",
+    thumbnail: "/assets/videos/sU86ymUEYNU.jpg",
+    duration: "20:30",
+    date: "Jul 6, 2026",
+    description: "چطور در فیگما مثل یک حرفه‌ای انیمیشن و موشن طراحی کنیم؟",
+    tag: "Motion",
+  },
+  {
+    id: "oiaVm8OOTDs",
+    title: "آموزش قابلیت Auto-Layout در فیگما - Auto-Layout Tutorial in Figma",
+    thumbnail: "/assets/videos/oiaVm8OOTDs.jpg",
+    duration: "19:12",
+    date: "Jun 20, 2026",
+    description: "توی این ویدیو رفتیم سراغ یکی از مهم‌ترین و کاربردی‌ترین قابلیت‌های فیگما یعنی Auto Layout!",
+    tag: "Auto Layout",
+  },
+  {
+    id: "KysqbO60QpI",
+    title: "آشنایی با ابزارهای فیگما - Introduction to Figma Tools",
+    thumbnail: "/assets/videos/KysqbO60QpI.jpg",
+    duration: "26:03",
+    date: "Jun 20, 2026",
+    description: "توی این ویدیو میریم سراغ بررسی ابزارهای مختلف فیگما و یاد میگیریم چجوری تو Figma Community برای خودمون پروفایل بسازیم.",
+    tag: "Tools",
+  },
+  {
+    id: "z6uYh7uYcmU",
+    title: "آشنایی با فیگما - Getting Started with Figma",
+    thumbnail: "/assets/videos/z6uYh7uYcmU.jpg",
+    duration: "16:04",
+    date: "Jun 12, 2026",
+    description: "توی این ویدیو سراغ نرم‌افزار فیگما رفتیم و قراره باهاش آشنا بشیم.",
+    tag: "Getting Started",
+  },
+  {
+    id: "M-8yB27FSrA",
+    title: "آموزش پروتوتایپ فیگما - Figma Prototype",
+    thumbnail: "/assets/videos/M-8yB27FSrA.jpg",
+    duration: "25:43",
+    date: "May 22, 2026",
+    description: "در این ویدیو به آموزش قابلیت پروتوتایپ نرم‌افزار Figma خواهیم پرداخت.",
+    tag: "Prototype",
+  },
+];
+
 export type ProjectLayout = "feature" | "stack" | "reverse";
 
 export type Project = {
@@ -123,6 +226,8 @@ export const experience = [
   {
     index: "04",
     company: "Rahnema College",
+    logo: asset("rahnema.png"),
+    logoTone: "white" as const,
     title: "Product Design Mentor",
     dates: "2025 – 2026",
     span: "In progress",
@@ -134,6 +239,8 @@ export const experience = [
   {
     index: "05",
     company: "Cando",
+    logo: asset("cando.png"),
+    logoTone: "white" as const,
     title: "Product Design Instructor",
     dates: "2025",
     span: "3 mos",
@@ -147,15 +254,13 @@ export const experience = [
 export const services = [
   "1. UI & Product Design",
   "2. Design Engineering",
-  "3. Framer Development",
-  "4. Design Systems",
-  "5. Interaction & Motion Design",
+  "3. Design Systems",
+  "4. Interaction & Motion Design",
 ];
 
 export const serviceOptions = [
   "UI & Product Design",
   "Design Engineering",
-  "Framer Development",
   "Design Systems",
   "Interaction & Motion Design",
 ];
@@ -185,15 +290,6 @@ export const testimonials = [
     photo: asset("R2ciXKhdnuMP1LL0NQj83MWKno.png"),
     photoAlt: "Daniel Hoffmann",
   },
-];
-
-export const retainer = [
-  "Pause or cancel anytime",
-  "One request at a time",
-  "Avg. 48 hour turnaround",
-  "Unlimited revisions",
-  "Design + code delivered",
-  "Up to 2 stakeholders",
 ];
 
 export type CaseBlock =

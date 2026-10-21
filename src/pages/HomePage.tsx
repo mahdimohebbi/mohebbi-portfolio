@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ProjectCard } from "../components/ProjectCard";
 import { Testimonials } from "../components/Testimonials";
-import { CV_FILENAME, CV_URL, asset, experience, projects, retainer, services } from "../data/content";
+import { VideoCard } from "../components/VideoCard";
+import { CV_FILENAME, CV_URL, asset, experience, projects, services, videos } from "../data/content";
 
 export function HomePage() {
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -54,10 +55,6 @@ export function HomePage() {
     <main>
       <section className="inner hero" id="about">
         <div>
-          <p className="badge">
-            <i />
-            Available
-          </p>
           <h1>
             I am Moheb
             <img src={asset("jvGr0RTMInClAF2QT0iQSaByfE.png")} alt="" />
@@ -100,7 +97,7 @@ export function HomePage() {
               </div>
               <div className="job">
                 <div className="company-line">
-                  {job.logo ? <img src={job.logo} alt="" /> : null}
+                  {job.logo ? <img className={job.logoTone === "white" ? "white" : undefined} src={job.logo} alt="" /> : null}
                   <span>{job.company}</span>
                 </div>
                 <h3>{job.title}</h3>
@@ -135,35 +132,24 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="section inner" id="learn">
+        <p className="kicker">// Learn together</p>
+        <div className="learn-head">
+          <h2>Latest videos from my YouTube channel</h2>
+          <Link className="show-more" to="/learn-together">
+            Show more
+          </Link>
+        </div>
+        <div className="video-grid">
+          {videos.slice(0, 3).map((video) => (
+            <VideoCard key={video.id} video={video} />
+          ))}
+        </div>
+      </section>
+
       <div className="inner">
         <Testimonials />
       </div>
-
-      <section className="section inner" id="how-it-work">
-        <p className="kicker">// How it works</p>
-        <h2>No agencies - just me, fully in on your product</h2>
-        <div className="pricing">
-          <div className="price-photo">
-            <img src={asset("nYmXZiNjSPyLZtY9JlqcEE5i8.png")} alt="Mohammad Mahdi Mohebbi" />
-            <span className="tag">AVAILABLE</span>
-            <p>Mohammad Mahdi Mohebbi</p>
-            <p className="sub">Product Designer</p>
-          </div>
-          <div className="price-copy">
-            <h3>Monthly Retainer</h3>
-            <p className="sub">One design engineer dedicated to your product.</p>
-            <p className="sub">I design it, build it, and ship it - start to finish, no middleman.</p>
-            <ul className="checks">
-              {retainer.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <Link className="connect" to="/contact-me">
-              Let's connect →
-            </Link>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
