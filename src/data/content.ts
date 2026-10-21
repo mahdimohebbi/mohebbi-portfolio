@@ -4,10 +4,14 @@ export const CV_URL = "/assets/Resume-mohebbi.pdf";
 export const CV_FILENAME = "Resume mohebbi.pdf";
 
 export const socials = [
-  { href: "https://gmail.com/", label: "Email", icon: asset("2r0tMSF7EWzSPXNxVDMxk3eqUg.png") },
-  { href: "https://linkedin.com/", label: "LinkedIn", icon: asset("Pn59joQsJtNvf0zGbsR6yXhIKA.png") },
-  { href: "https://x.com/", label: "X", icon: asset("DqwlYiGLvOFU8KRZqaSNdJxEbik.png") },
-];
+  { id: "dribbble", href: "https://dribbble.com/mohebbiam", label: "Dribbble", icon: "/assets/social/dribbble.png", mono: true },
+  { id: "instagram", href: "https://www.instagram.com/mohebbiam", label: "Instagram", icon: "/assets/social/instagram.png", mono: true },
+  { id: "youtube", href: "https://youtube.com/@ProductCastX", label: "YouTube", icon: "/assets/social/youtube.png", mono: false },
+  { id: "gmail", href: "mailto:mahdi.mohebbi.m@gmail.com", label: "Gmail", icon: "/assets/social/gmail.png", mono: false },
+  { id: "linkedin", href: "https://www.linkedin.com/in/mohebbiam", label: "LinkedIn", icon: "/assets/social/linkedin.png", mono: false },
+  { id: "telegram", href: "https://t.me/mohammadmahdiiam", label: "Telegram", icon: "/assets/social/telegram.png", mono: false },
+  { id: "figma", href: "https://www.figma.com/@mohebbiam", label: "Figma", icon: "/assets/social/figma.png", mono: false },
+] as const;
 
 export type ProjectLayout = "feature" | "stack" | "reverse";
 
