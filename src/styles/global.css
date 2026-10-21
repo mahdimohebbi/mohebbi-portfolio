@@ -90,49 +90,18 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   margin: 0 auto;
 }
 
-.side-nav {
-  position: fixed;
-  z-index: 30;
-  left: max(16px, calc(50vw - 680px));
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 10px;
-  border-radius: 22px;
-  background: var(--color-nav);
-  border: 1px solid var(--color-line);
-  backdrop-filter: blur(16px);
-}
-.side-nav a, .side-nav button {
-  width: 42px;
-  height: 42px;
-  border: 0;
-  border-radius: 12px;
-  background: transparent;
-  color: var(--color-text-muted);
-  display: grid;
-  place-items: center;
-}
-.side-nav a[aria-current="true"], .side-nav a:hover, .side-nav button:hover {
-  color: var(--color-accent);
-  background: rgba(255, 92, 0, 0.08);
-}
-.side-nav svg { width: 18px; height: 18px; }
-
 .topbar {
   position: fixed;
   z-index: 25;
   top: 18px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(640px, calc(100% - 140px));
+  width: min(640px, calc(100% - 48px));
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 8px 14px 8px 8px;
+  padding: 8px 8px 8px 8px;
   border-radius: 18px;
   background: color-mix(in srgb, var(--color-card) 88%, transparent);
   border: 1px solid var(--color-line);
@@ -178,6 +147,27 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   background: var(--color-green);
   display: block;
 }
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--color-text-muted);
+  display: grid;
+  place-items: center;
+}
+.theme-toggle:hover {
+  color: var(--color-accent);
+  background: rgba(255, 92, 0, 0.08);
+}
+.theme-toggle svg { width: 18px; height: 18px; }
 .section { padding: 88px 0; }
 .kicker {
   color: var(--color-accent);
@@ -369,7 +359,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 }
 .timeline-track {
   position: absolute;
-  left: 49px;
+  left: 56px;
   width: 3px;
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.12);
@@ -671,8 +661,6 @@ form button:hover { color: var(--color-text-primary); }
 .missing h1 { font-size: 48px; color: var(--color-text-primary); margin-bottom: 12px; }
 
 @media (max-width: 980px) {
-  .side-nav { left: 10px; }
-  .topbar { width: calc(100% - 92px); left: calc(50% + 20px); }
   .hero { padding-top: 96px; }
   .pricing, .quote-card, .contact-grid, .card-feature, .card-reverse, .work-grid, .facts, .pair {
     grid-template-columns: 1fr;
@@ -685,13 +673,6 @@ form button:hover { color: var(--color-text-primary); }
 @media (max-width: 720px) {
   .frame { width: 100%; border: 0; }
   .inner { width: min(100% - 32px, 896px); }
-  .side-nav {
-    top: auto;
-    bottom: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    flex-direction: row;
-  }
   .topbar {
     position: sticky;
     top: 8px;
@@ -708,8 +689,8 @@ form button:hover { color: var(--color-text-primary); }
   }
   .hero h1 { font-size: 42px; }
   .role { font-size: 24px; }
-  .row { grid-template-columns: 52px 1fr; }
-  .timeline-track { left: 24px; }
+  .row { grid-template-columns: 64px 1fr; }
+  .timeline-track { left: 46px; }
   .footer-lines { flex-direction: column; text-align: center; }
   .checks { grid-template-columns: 1fr; }
   .card h3 { font-size: 22px; }
