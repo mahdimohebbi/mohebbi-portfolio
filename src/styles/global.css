@@ -195,12 +195,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 
 .hero {
   position: relative;
-  min-height: 640px;
   padding: 132px 0 72px;
-  display: grid;
-  grid-template-columns: minmax(0, 520px) minmax(220px, 1fr);
-  gap: 24px;
-  align-items: start;
 }
 .badge {
   display: inline-flex;
@@ -258,40 +253,6 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   transition: background-color 0.2s ease;
 }
 .cv:hover { background: #3a3a3a; }
-
-.lanyard {
-  justify-self: end;
-  width: 250px;
-  margin-top: -40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.cord {
-  width: 8px;
-  height: 92px;
-  border-radius: 8px;
-  background: linear-gradient(#6d6d6d, #bdbdbd 40%, #6d6d6d);
-}
-.clip {
-  width: 34px;
-  height: 18px;
-  margin-top: -6px;
-  border-radius: 4px 4px 8px 8px;
-  background: linear-gradient(#d7d7d7, #8d8d8d);
-  position: relative;
-  z-index: 1;
-}
-.portrait {
-  width: 100%;
-  margin-top: -8px;
-  border-radius: 22px;
-  overflow: hidden;
-  border-top: 8px solid var(--color-accent);
-  background: #dbe7ff;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
-}
-.portrait img { width: 100%; aspect-ratio: 1; object-fit: cover; }
 
 .work-list { display: flex; flex-direction: column; gap: 28px; }
 .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -400,28 +361,26 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   font-size: 22px;
   font-weight: 500;
   padding-top: 4px;
+  transition: color 0.25s ease;
 }
+.index.active { color: var(--color-text-primary); }
 .rail {
   position: relative;
 }
-.rail::before {
-  content: "";
+.timeline-track {
   position: absolute;
   left: 49px;
-  top: 28px;
-  bottom: -18px;
   width: 3px;
-  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
 }
-.row:last-child .rail::before { display: none; }
-.fill {
-  position: absolute;
-  left: 49px;
-  top: 28px;
-  width: 3px;
-  height: var(--fill, 0%);
+:root[data-theme="light"] .timeline-track { background: rgba(26, 26, 26, 0.14); }
+.timeline-fill {
+  width: 100%;
+  height: 0;
+  border-radius: inherit;
   background: var(--color-accent);
-  transform-origin: top;
 }
 .job { padding-top: 28px; }
 .company-line {
@@ -714,8 +673,7 @@ form button:hover { color: var(--color-text-primary); }
 @media (max-width: 980px) {
   .side-nav { left: 10px; }
   .topbar { width: calc(100% - 92px); left: calc(50% + 20px); }
-  .hero { grid-template-columns: 1fr; }
-  .lanyard { justify-self: center; margin-top: 12px; }
+  .hero { padding-top: 96px; }
   .pricing, .quote-card, .contact-grid, .card-feature, .card-reverse, .work-grid, .facts, .pair {
     grid-template-columns: 1fr;
   }
@@ -743,11 +701,15 @@ form button:hover { color: var(--color-text-primary); }
     margin: 8px auto 0;
   }
   .status { display: none; }
-  .hero { min-height: 0; padding-top: 36px; }
+  .hero { padding-top: 36px; }
+  .cv {
+    width: 100%;
+    justify-content: center;
+  }
   .hero h1 { font-size: 42px; }
   .role { font-size: 24px; }
   .row { grid-template-columns: 52px 1fr; }
-  .rail::before, .fill { left: 24px; }
+  .timeline-track { left: 24px; }
   .footer-lines { flex-direction: column; text-align: center; }
   .checks { grid-template-columns: 1fr; }
   .card h3 { font-size: 22px; }
@@ -755,5 +717,5 @@ form button:hover { color: var(--color-text-primary); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .media img, .cv, .arrow, .foot .arrow svg, .socials a { transition: none; }
+  .media img, .cv, .arrow, .foot .arrow svg, .socials a, .index { transition: none; }
 }
