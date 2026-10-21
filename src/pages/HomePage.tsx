@@ -1,27 +1,53 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ProjectCard } from "../components/ProjectCard";
 import { Testimonials } from "../components/Testimonials";
 import { CV_FILENAME, CV_URL, asset, experience, projects, retainer, services } from "../data/content";
 
 export function HomePage() {
-  const [progress, setProgress] = useState(8);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const [line, setLine] = useState({ top: 0, height: 0, fill: 0, active: 0 });
   const feature = projects[0];
   const stacked = projects.filter((project) => project.homeLayout === "stack");
   const reverse = projects.find((project) => project.homeLayout === "reverse");
 
   useEffect(() => {
-    const onScroll = () => {
-      const timeline = document.getElementById("experience");
-      if (!timeline) return;
-      const rect = timeline.getBoundingClientRect();
-      const total = rect.height - window.innerHeight * 0.4;
-      const seen = Math.min(Math.max(-rect.top, 0), total);
-      setProgress(Math.round((seen / total) * 100));
+    const root = timelineRef.current;
+    if (!root) return;
+
+    const update = () => {
+      const indexes = root.querySelectorAll<HTMLElement>(".index");
+      if (indexes.length < 2) return;
+      const rootTop = root.getBoundingClientRect().top;
+      const centers = [...indexes].map((node) => {
+        const rect = node.getBoundingClientRect();
+        return rect.top + rect.height / 2;
+      });
+      const top = centers[0] - rootTop;
+      const height = centers[centers.length - 1] - centers[0];
+      const trigger = window.innerHeight * 0.55;
+      const fill = Math.min(100, Math.max(0, ((trigger - centers[0]) / height) * 100));
+      const active = centers.filter((center) => center <= trigger).length;
+      setLine((current) =>
+        Math.abs(current.top - top) < 0.5 &&
+        Math.abs(current.height - height) < 0.5 &&
+        Math.abs(current.fill - fill) < 0.4 &&
+        current.active === active
+          ? current
+          : { top, height, fill, active },
+      );
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(root);
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   return (
@@ -44,13 +70,6 @@ export function HomePage() {
             Download Resume
           </a>
         </div>
-        <div className="lanyard" aria-hidden="true">
-          <div className="cord" />
-          <div className="clip" />
-          <div className="portrait">
-            <img src={asset("iNf1aETYjPNKr0YUXZwmPYoK7ZI.png")} alt="Mohammad Mahdi Mohebbi" />
-          </div>
-        </div>
       </section>
 
       <section className="section inner" id="work">
@@ -70,16 +89,18 @@ export function HomePage() {
       <section className="section inner" id="experience">
         <p className="kicker">//Experience</p>
         <h2>Where i'm good and where i learned from</h2>
-        <div className="timeline">
+        <div className="timeline" ref={timelineRef}>
+          <div className="timeline-track" style={{ top: line.top, height: line.height }} aria-hidden="true">
+            <div className="timeline-fill" style={{ height: `${line.fill}%` }} />
+          </div>
           {experience.map((job, index) => (
             <article className="row" key={job.index}>
               <div className="rail">
-                <div className="index">{job.index}</div>
-                <div className="fill" style={{ ["--fill" as string]: `${Math.max(0, Math.min(100, progress - index * 22))}%` }} />
+                <div className={index < line.active ? "index active" : "index"}>{job.index}</div>
               </div>
               <div className="job">
                 <div className="company-line">
-                  <img src={job.logo} alt="" />
+                  {job.logo ? <img src={job.logo} alt="" /> : null}
                   <span>{job.company}</span>
                 </div>
                 <h3>{job.title}</h3>
