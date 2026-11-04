@@ -27,7 +27,7 @@ export const videos: Video[] = [
   {
     id: "GwUyg7FzmxI",
     title: "Figma Variables - وریبل در فیگما",
-    thumbnail: "/assets/videos/GwUyg7FzmxI.jpg",
+    thumbnail: "/assets/videos/GwUyg7FzmxI.webp",
     duration: "22:56",
     date: "Sep 20, 2026",
     description: "آموزش کامل وریبل‌ها (Variables) در فیگما؛ از صفر تا طراحی تم‌های رنگی و دیزاین سیستم 🧩🎨",
@@ -36,7 +36,7 @@ export const videos: Video[] = [
   {
     id: "tv3JLCZKdz8",
     title: "Figma Slot - اسلات در فیگما",
-    thumbnail: "/assets/videos/tv3JLCZKdz8.jpg",
+    thumbnail: "/assets/videos/tv3JLCZKdz8.webp",
     duration: "11:35",
     date: "Aug 21, 2026",
     description: "توی این ویدیو به سراغ یکی از تکنیک‌های فوق‌العاده کاربردی در ساخت دیزاین سیستم و کامپوننت‌های پیشرفته فیگما یعنی الگوی اسلات (Slot Components) رفتیم.",
@@ -45,7 +45,7 @@ export const videos: Video[] = [
   {
     id: "RgPlWTEAI04",
     title: "Figma Effects (Shaders Tutorial) - (Shaders آموزش ) افکت‌ها در فیگما",
-    thumbnail: "/assets/videos/RgPlWTEAI04.jpg",
+    thumbnail: "/assets/videos/RgPlWTEAI04.webp",
     duration: "21:50",
     date: "Aug 7, 2026",
     description: "آموزش سیر تا پیاز افکت‌ها، شیدرها و Effect Styles در فیگما 🪄✨",
@@ -54,7 +54,7 @@ export const videos: Video[] = [
   {
     id: "-V-ewM5004o",
     title: "استایل‌ها در فیگما - Figma Styles",
-    thumbnail: "/assets/videos/-V-ewM5004o.jpg",
+    thumbnail: "/assets/videos/-V-ewM5004o.webp",
     duration: "18:08",
     date: "Jul 25, 2026",
     description: "آموزش کامل و اصولی استایل‌ها (Styles) در فیگما 🎨🖌️",
@@ -63,7 +63,7 @@ export const videos: Video[] = [
   {
     id: "xA4r1bJQLpI",
     title: "Figma Component - آموزش کامپوننت فیگما",
-    thumbnail: "/assets/videos/xA4r1bJQLpI.jpg",
+    thumbnail: "/assets/videos/xA4r1bJQLpI.webp",
     duration: "21:57",
     date: "Jul 18, 2026",
     description: "یادگیری اصولی کامپوننت‌ها در فیگما؛🔥",
@@ -72,7 +72,7 @@ export const videos: Video[] = [
   {
     id: "sU86ymUEYNU",
     title: "آموزش فیگما موشن - Figma Motion",
-    thumbnail: "/assets/videos/sU86ymUEYNU.jpg",
+    thumbnail: "/assets/videos/sU86ymUEYNU.webp",
     duration: "20:30",
     date: "Jul 6, 2026",
     description: "چطور در فیگما مثل یک حرفه‌ای انیمیشن و موشن طراحی کنیم؟",
@@ -81,7 +81,7 @@ export const videos: Video[] = [
   {
     id: "oiaVm8OOTDs",
     title: "آموزش قابلیت Auto-Layout در فیگما - Auto-Layout Tutorial in Figma",
-    thumbnail: "/assets/videos/oiaVm8OOTDs.jpg",
+    thumbnail: "/assets/videos/oiaVm8OOTDs.webp",
     duration: "19:12",
     date: "Jun 20, 2026",
     description: "توی این ویدیو رفتیم سراغ یکی از مهم‌ترین و کاربردی‌ترین قابلیت‌های فیگما یعنی Auto Layout!",
@@ -90,7 +90,7 @@ export const videos: Video[] = [
   {
     id: "KysqbO60QpI",
     title: "آشنایی با ابزارهای فیگما - Introduction to Figma Tools",
-    thumbnail: "/assets/videos/KysqbO60QpI.jpg",
+    thumbnail: "/assets/videos/KysqbO60QpI.webp",
     duration: "26:03",
     date: "Jun 20, 2026",
     description: "توی این ویدیو میریم سراغ بررسی ابزارهای مختلف فیگما و یاد میگیریم چجوری تو Figma Community برای خودمون پروفایل بسازیم.",
@@ -99,7 +99,7 @@ export const videos: Video[] = [
   {
     id: "z6uYh7uYcmU",
     title: "آشنایی با فیگما - Getting Started with Figma",
-    thumbnail: "/assets/videos/z6uYh7uYcmU.jpg",
+    thumbnail: "/assets/videos/z6uYh7uYcmU.webp",
     duration: "16:04",
     date: "Jun 12, 2026",
     description: "توی این ویدیو سراغ نرم‌افزار فیگما رفتیم و قراره باهاش آشنا بشیم.",
@@ -108,7 +108,7 @@ export const videos: Video[] = [
   {
     id: "M-8yB27FSrA",
     title: "آموزش پروتوتایپ فیگما - Figma Prototype",
-    thumbnail: "/assets/videos/M-8yB27FSrA.jpg",
+    thumbnail: "/assets/videos/M-8yB27FSrA.webp",
     duration: "25:43",
     date: "May 22, 2026",
     description: "در این ویدیو به آموزش قابلیت پروتوتایپ نرم‌افزار Figma خواهیم پرداخت.",
@@ -141,8 +141,8 @@ export const projects: Project[] = [
       "Joined the team when every single screen was built in complete isolation and there is no tokens, no components, no consistency.",
     company: "SnappPay",
     role: "Product Designer",
-    logo: asset("Rk1npsW6CWkdNeAhnwtnGuspwo.png"),
-    cover: asset("HXl2XmtZecb2vb3Yte8nMVJTQ.png"),
+    logo: asset("Rk1npsW6CWkdNeAhnwtnGuspwo.webp"),
+    cover: asset("HXl2XmtZecb2vb3Yte8nMVJTQ.webp"),
     homeLayout: "feature",
   },
   {
@@ -154,8 +154,8 @@ export const projects: Project[] = [
       "The old dashboard had 11 years of visual debt. I stripped it back, rebuilt every component in React, and shipped a version that cut user drop-off by 40%.",
     company: "Setare Aval",
     role: "Frontend + designer",
-    logo: asset("PKL0cOBwT5LveHXGW1hSFhHajSE.png"),
-    cover: asset("FJm9lkqFOZ8skzXu5opgSSar2Iw.png"),
+    logo: asset("PKL0cOBwT5LveHXGW1hSFhHajSE.webp"),
+    cover: asset("FJm9lkqFOZ8skzXu5opgSSar2Iw.webp"),
     homeLayout: "stack",
   },
   {
@@ -167,8 +167,8 @@ export const projects: Project[] = [
       "Startup needed a launch site before their funding announcement. I designed and built the entire thing in Framer — live in 5 days, no handoff needed.",
     company: "Setare Aval",
     role: "Design engineer",
-    logo: asset("PKL0cOBwT5LveHXGW1hSFhHajSE.png"),
-    cover: asset("2sngz7vnl2Hwf5K2uLGBlP5cH5A.png"),
+    logo: asset("PKL0cOBwT5LveHXGW1hSFhHajSE.webp"),
+    cover: asset("2sngz7vnl2Hwf5K2uLGBlP5cH5A.webp"),
     homeLayout: "stack",
   },
   {
@@ -180,8 +180,8 @@ export const projects: Project[] = [
       "The original onboarding had a 60% drop-off at step two. I redesigned the flow in framer and handed devs production-ready specs.",
     company: "SnappBox",
     role: "Designer",
-    logo: asset("TEvYeIoGqRfw0xtTuDGonwrZlw.png"),
-    cover: asset("VKoqdMRhhobaYKCO653Yhxi5i8.png"),
+    logo: asset("TEvYeIoGqRfw0xtTuDGonwrZlw.webp"),
+    cover: asset("VKoqdMRhhobaYKCO653Yhxi5i8.webp"),
     homeLayout: "reverse",
   },
 ];
@@ -190,7 +190,7 @@ export const experience = [
   {
     index: "01",
     company: "SnappPay",
-    logo: asset("Rk1npsW6CWkdNeAhnwtnGuspwo.png"),
+    logo: asset("Rk1npsW6CWkdNeAhnwtnGuspwo.webp"),
     title: "Product Designer",
     dates: "2025 –",
     span: "Present",
@@ -202,7 +202,7 @@ export const experience = [
   {
     index: "02",
     company: "SetareAval (MCI)",
-    logo: asset("PKL0cOBwT5LveHXGW1hSFhHajSE.png"),
+    logo: asset("PKL0cOBwT5LveHXGW1hSFhHajSE.webp"),
     title: "Product Designer",
     dates: "2023 – 2025",
     span: "2 yrs 1 mos",
@@ -214,7 +214,7 @@ export const experience = [
   {
     index: "03",
     company: "SetareAval (MCI)",
-    logo: asset("PKL0cOBwT5LveHXGW1hSFhHajSE.png"),
+    logo: asset("PKL0cOBwT5LveHXGW1hSFhHajSE.webp"),
     title: "UX/UI Designer",
     dates: "2021 – 2023",
     span: "1 yr 11 mos",
@@ -226,7 +226,7 @@ export const experience = [
   {
     index: "04",
     company: "Rahnema College",
-    logo: asset("rahnema.png"),
+    logo: asset("rahnema.webp"),
     logoTone: "white" as const,
     title: "Product Design Mentor",
     dates: "2025 – 2026",
@@ -239,7 +239,7 @@ export const experience = [
   {
     index: "05",
     company: "Cando",
-    logo: asset("cando.png"),
+    logo: asset("cando.webp"),
     logoTone: "white" as const,
     title: "Product Design Instructor",
     dates: "2025",
@@ -271,7 +271,7 @@ export const testimonials = [
       "Working with Moheb was a different experience. He didn't just deliver designs he delivered a working product.",
     name: "Hossein Mahmoudvand",
     role: "Product Design Lead, SnappPay",
-    photo: asset("Pbqe6AAIA2xNq5NIZmBMy2YGg8.jpeg"),
+    photo: asset("Pbqe6AAIA2xNq5NIZmBMy2YGg8.webp"),
     photoAlt: "Hossein Mahmoudvand",
   },
   {
@@ -279,7 +279,7 @@ export const testimonials = [
       "Working with Moheb on product felt easy. He listens, he designs with the real flow in mind, and the files he hands over are already ready to build.",
     name: "Mohammad Hossein Ahmadi",
     role: "Product Designer, SnappMarket",
-    photo: asset("mohammad-hossein-ahmadi.jpg"),
+    photo: asset("mohammad-hossein-ahmadi.webp"),
     photoAlt: "Mohammad Hossein Ahmadi",
   },
   {
@@ -287,7 +287,7 @@ export const testimonials = [
       "As an engineer, Moheb is the designer I trust. The specs were clear, the edge cases were there, and I could build without going back and forth.",
     name: "Mahdi Saedi",
     role: "Software Engineer, SetareAval",
-    photo: asset("mahdi-saedi.jpg"),
+    photo: asset("mahdi-saedi.webp"),
     photoAlt: "Mahdi Saedi",
   },
 ];
@@ -331,7 +331,7 @@ export const caseStudies: CaseStudy[] = [
       "launching-a-marketing-site-in-5-days",
     ],
     blocks: [
-      { type: "wide", src: img("XB22gMlc8JhDmNfkgStDHPf0Y.png"), alt: "Lumio design system cover" },
+      { type: "wide", src: img("XB22gMlc8JhDmNfkgStDHPf0Y.webp"), alt: "Lumio design system cover" },
       { type: "h", text: "Problem" },
       {
         type: "p",
@@ -339,7 +339,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "pair",
-        srcs: [img("FrYRyhlqJw11PYIRV7BVi24kxP0.png"), img("Q6q8CW8ze8LSqXQuoMoSqDQFnhU.png")],
+        srcs: [img("FrYRyhlqJw11PYIRV7BVi24kxP0.webp"), img("Q6q8CW8ze8LSqXQuoMoSqDQFnhU.webp")],
         alt: "Design system screens",
       },
       { type: "h", text: "My role" },
@@ -376,7 +376,7 @@ export const caseStudies: CaseStudy[] = [
         text: "The goal wasn't just to build a system — it was to build one the team could maintain without me.",
         strong: ["it was to build one the team could maintain without me."],
       },
-      { type: "wide", src: img("pYNekn8vLMKygFxfM1UUZRXG1is.png"), alt: "Component documentation" },
+      { type: "wide", src: img("pYNekn8vLMKygFxfM1UUZRXG1is.webp"), alt: "Component documentation" },
       { type: "h", text: "What shipped" },
       {
         type: "p",
@@ -424,7 +424,7 @@ export const caseStudies: CaseStudy[] = [
       "launching-a-marketing-site-in-5-days",
     ],
     blocks: [
-      { type: "wide", src: img("x8AZaTrGwEBNokQDHAdo0M7Ko1E.png"), alt: "Dashboard redesign cover" },
+      { type: "wide", src: img("x8AZaTrGwEBNokQDHAdo0M7Ko1E.webp"), alt: "Dashboard redesign cover" },
       { type: "h", text: "Problem" },
       {
         type: "p",
@@ -432,7 +432,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "pair",
-        srcs: [img("Rfu46onsfvhp0Ak0M3EQBArEs.png"), img("LZv1hqEg77zkK9SAWaEBlbQsdk.png")],
+        srcs: [img("Rfu46onsfvhp0Ak0M3EQBArEs.webp"), img("LZv1hqEg77zkK9SAWaEBlbQsdk.webp")],
         alt: "Dashboard screens",
       },
       { type: "h", text: "My role" },
@@ -457,7 +457,7 @@ export const caseStudies: CaseStudy[] = [
         text: "Then came the visual layer — a clean component system built in parallel between Figma and Next.js using feature flags so we could ship incrementally. Each section went live separately. We measured drop-off at every step. The data told us what was working before we committed to the full release.",
         strong: ["feature flags"],
       },
-      { type: "wide", src: img("FK9sB8zfTqjqMGnssU0T7jvmVT0.png"), alt: "Shipped dashboard" },
+      { type: "wide", src: img("FK9sB8zfTqjqMGnssU0T7jvmVT0.webp"), alt: "Shipped dashboard" },
       { type: "h", text: "What shipped" },
       {
         type: "p",
@@ -500,7 +500,7 @@ export const caseStudies: CaseStudy[] = [
       "redesigning-the-core-dashboard-of-saas-product",
     ],
     blocks: [
-      { type: "wide", src: img("he6cpeaxv0wi3oUfrfCFNRs6XD4.png"), alt: "Marketing site cover" },
+      { type: "wide", src: img("he6cpeaxv0wi3oUfrfCFNRs6XD4.webp"), alt: "Marketing site cover" },
       { type: "h", text: "Problem" },
       {
         type: "p",
@@ -508,7 +508,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "pair",
-        srcs: [img("85cjVqSPEvndIM2ZhVg3z4nSv0.png"), img("GK79PxZLMAyKNWO4I8bvwQxEAJo.png")],
+        srcs: [img("85cjVqSPEvndIM2ZhVg3z4nSv0.webp"), img("GK79PxZLMAyKNWO4I8bvwQxEAJo.webp")],
         alt: "Marketing site screens",
       },
       { type: "h", text: "My role" },
@@ -535,7 +535,7 @@ export const caseStudies: CaseStudy[] = [
         text: "Days 4 and 5 — interactions, mobile, and launch. Scroll animations were the last thing added — not the first. Every animation had to earn its place by making the content clearer or the experience more memorable. Nothing decorative. Nothing that slowed the page down.",
         strong: ["Days 4 and 5 — interactions, mobile, and launch."],
       },
-      { type: "wide", src: img("qHNFnBVn7NzTPs4iU6p1hR5HVlA.png"), alt: "Launched marketing site" },
+      { type: "wide", src: img("qHNFnBVn7NzTPs4iU6p1hR5HVlA.webp"), alt: "Launched marketing site" },
       { type: "h", text: "What shipped" },
       {
         type: "p",
@@ -575,7 +575,7 @@ export const caseStudies: CaseStudy[] = [
       "redesigning-the-core-dashboard-of-saas-product",
     ],
     blocks: [
-      { type: "wide", src: img("XiTu2BPTU7JIvWJAftQBMCPViU.png"), alt: "Onboarding flow cover" },
+      { type: "wide", src: img("XiTu2BPTU7JIvWJAftQBMCPViU.webp"), alt: "Onboarding flow cover" },
       { type: "h", text: "Problem" },
       {
         type: "p",
@@ -583,7 +583,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "pair",
-        srcs: [img("PawvToX6Eyw3zsycrcH2MTkppY.png"), img("Zjdx5OjB22com7ofEmN6cfyQaI.png")],
+        srcs: [img("PawvToX6Eyw3zsycrcH2MTkppY.webp"), img("Zjdx5OjB22com7ofEmN6cfyQaI.webp")],
         alt: "Onboarding screens",
       },
       { type: "h", text: "My role" },
@@ -610,7 +610,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         type: "pair",
-        srcs: [img("pI5fRuAePTer5u0hjDE1CdimJ4.png"), img("FGNUuNyHy6Ll1g01RlfMjBlcAo.png")],
+        srcs: [img("pI5fRuAePTer5u0hjDE1CdimJ4.webp"), img("FGNUuNyHy6Ll1g01RlfMjBlcAo.webp")],
         alt: "Prototype states",
       },
       { type: "h", text: "What shipped" },

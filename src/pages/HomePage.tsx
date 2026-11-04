@@ -57,7 +57,7 @@ export function HomePage() {
         <div>
           <h1>
             I am Moheb
-            <img src={asset("jvGr0RTMInClAF2QT0iQSaByfE.png")} alt="" />
+            <img src={asset("jvGr0RTMInClAF2QT0iQSaByfE.webp")} alt="" />
           </h1>
           <p className="role">Product Designer</p>
           <p className="lede">
@@ -97,7 +97,7 @@ export function HomePage() {
               </div>
               <div className="job">
                 <div className="company-line">
-                  {job.logo ? <img className={job.logoTone === "white" ? "white" : undefined} src={job.logo} alt="" /> : null}
+                  {job.logo ? <img className={job.logoTone === "white" ? "white" : undefined} src={job.logo} alt="" loading="lazy" decoding="async" /> : null}
                   <span>{job.company}</span>
                 </div>
                 <h3>{job.title}</h3>

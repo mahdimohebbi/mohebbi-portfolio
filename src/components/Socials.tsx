@@ -12,7 +12,7 @@ export function Socials() {
             aria-label={item.label}
             {...(mail ? {} : { target: "_blank", rel: "noreferrer" })}
           >
-            <img className={item.mono ? "mono" : undefined} src={item.icon} alt="" />
+            <img className={item.mono ? "mono" : undefined} src={item.icon} alt="" loading="lazy" decoding="async" />
           </a>
         );
       })}

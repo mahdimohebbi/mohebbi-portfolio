@@ -4,7 +4,7 @@ export function VideoCard({ video }: { video: Video }) {
   return (
     <a className="video-card" href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noreferrer">
       <div className="video-thumb">
-        <img src={video.thumbnail} alt="" />
+        <img src={video.thumbnail} alt="" loading="lazy" decoding="async" />
       </div>
       <div className="video-body">
         <p className="video-title">

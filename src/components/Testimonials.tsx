@@ -14,7 +14,7 @@ export function Testimonials() {
       <h2 id="words-title">some good words from people I've worked with</h2>
       <article className="quote-card">
         {item.photo ? (
-          <img src={item.photo} alt={item.photoAlt} />
+          <img src={item.photo} alt={item.photoAlt} loading="lazy" decoding="async" />
         ) : (
           <span className="quote-fallback" aria-hidden="true">
             {item.name

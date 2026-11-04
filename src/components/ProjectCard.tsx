@@ -6,7 +6,7 @@ export function ProjectCard({ project, layout }: { project: Project; layout?: Pr
   return (
     <Link className={`card card-${kind}`} to={`/case-study/${project.slug}`}>
       <div className="media">
-        <img src={project.cover} alt="" />
+        <img src={project.cover} alt="" loading="lazy" decoding="async" />
       </div>
       <div className="copy">
         <h3>{project.title}</h3>
@@ -16,7 +16,7 @@ export function ProjectCard({ project, layout }: { project: Project; layout?: Pr
         </div>
         <p className="summary">{project.summary}</p>
         <div className="foot">
-          <img src={project.logo} alt="" />
+          <img src={project.logo} alt="" loading="lazy" decoding="async" />
           <div>
             <strong>{project.company}</strong>
             <span>{project.role}</span>

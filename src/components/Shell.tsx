@@ -33,7 +33,7 @@ export function Shell({ children }: { children: ReactNode }) {
     <div className="shell">
       <header className="topbar">
         <Link to="/" className="who">
-          <img src={asset("iNf1aETYjPNKr0YUXZwmPYoK7ZI.png")} alt="Mohammad Mahdi Mohebi" />
+          <img src={asset("iNf1aETYjPNKr0YUXZwmPYoK7ZI.webp")} alt="Mohammad Mahdi Mohebi" />
           <span>
             <strong>Mohammad Mahdi Mohebi</strong>
             <span>Product Designer</span>

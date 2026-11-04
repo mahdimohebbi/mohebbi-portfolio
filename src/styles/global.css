@@ -19,9 +19,10 @@
   --content-width: 896px;
   --radius-card: 24px;
   --radius-pill: 999px;
-  --font-sans: "Satoshi", "Inter", sans-serif;
-  --font-display: "Inter Display", "Satoshi", sans-serif;
-  --font-ui: "Manrope", "Satoshi", sans-serif;
+  /* System font stack: SF Pro on Apple devices, the native UI font elsewhere. Nothing to download. */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-ui: var(--font-sans);
   --header-offset: 28px;
   color-scheme: dark;
 }

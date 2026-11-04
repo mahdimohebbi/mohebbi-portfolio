@@ -48,7 +48,7 @@ export function ContactPage() {
             {sent ? <p className="success">I'll reach you soon</p> : null}
           </form>
           <aside className="contact-card">
-            <img className="portrait-lg" src={asset("iNf1aETYjPNKr0YUXZwmPYoK7ZI.png")} alt="Portrait" />
+            <img className="portrait-lg" src={asset("iNf1aETYjPNKr0YUXZwmPYoK7ZI.webp")} alt="Portrait" />
             <span className="tag">AVAILABLE</span>
             <p className="who-line">Zolt Mercer · Design engineer</p>
             <Socials />
