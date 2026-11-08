@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { testimonials } from "../data/content";
+import type { Section } from "../data/content";
 
-export function Testimonials() {
+export function Testimonials({ section }: { section: Extract<Section, { type: "testimonials" }> }) {
+  const testimonials = section.items;
   const [index, setIndex] = useState(0);
   const item = testimonials[index];
   const step = (direction: number) => {
@@ -10,11 +11,11 @@ export function Testimonials() {
 
   return (
     <section className="section" aria-labelledby="words-title">
-      <p className="kicker">// good words</p>
-      <h2 id="words-title">some good words from people I've worked with</h2>
+      {section.kicker ? <p className="kicker">{section.kicker}</p> : null}
+      <h2 id="words-title">{section.title}</h2>
       <article className="quote-card">
         {item.photo ? (
-          <img src={item.photo} alt={item.photoAlt} loading="lazy" decoding="async" />
+          <img src={item.photo} alt={item.name} loading="lazy" decoding="async" />
         ) : (
           <span className="quote-fallback" aria-hidden="true">
             {item.name
@@ -37,7 +38,7 @@ export function Testimonials() {
             <div className="dots" role="tablist" aria-label="Testimonials">
               {testimonials.map((entry, i) => (
                 <button
-                  key={entry.name}
+                  key={i}
                   type="button"
                   role="tab"
                   aria-label={entry.name}

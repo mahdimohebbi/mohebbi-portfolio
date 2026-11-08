@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { asset } from "../data/content";
+import { footer, profile } from "../data/content";
 import { Socials } from "./Socials";
 
 function Icon({ name }: { name: "sun" | "moon" }) {
@@ -33,18 +33,20 @@ export function Shell({ children }: { children: ReactNode }) {
     <div className="shell">
       <header className="topbar">
         <Link to="/" className="who">
-          <img src={asset("iNf1aETYjPNKr0YUXZwmPYoK7ZI.webp")} alt="Mohammad Mahdi Mohebi" />
+          {profile.avatar ? <img src={profile.avatar} alt={profile.name} /> : null}
           <span>
-            <strong>Mohammad Mahdi Mohebi</strong>
-            <span>Product Designer</span>
+            <strong>{profile.name}</strong>
+            <span>{profile.role}</span>
           </span>
         </Link>
         <div className="top-actions">
-          <div className="status">
-            <span className="available">
-              <i /> Available
-            </span>
-          </div>
+          {profile.available ? (
+            <div className="status">
+              <span className="available">
+                <i /> {profile.availableText}
+              </span>
+            </div>
+          ) : null}
           <button
             type="button"
             className="theme-toggle"
@@ -60,11 +62,12 @@ export function Shell({ children }: { children: ReactNode }) {
         {children}
         <footer className="site-footer">
         <div className="inner footer-lines">
-          <p>Thank you, for visiting here</p>
-          <p>Let's create something beautiful</p>
+          {footer.lines.map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
         </div>
         <Socials />
-        <p className="copyline">@Moheb 2026</p>
+        <p className="copyline">{footer.copyright}</p>
         </footer>
       </div>
     </div>

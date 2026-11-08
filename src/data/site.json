@@ -1,0 +1,345 @@
+{
+  "profile": {
+    "name": "Mohammad Mahdi Mohebi",
+    "role": "Product Designer",
+    "avatar": "/assets/images/iNf1aETYjPNKr0YUXZwmPYoK7ZI.webp",
+    "available": true,
+    "availableText": "Available",
+    "heroTitle": "I am Moheb",
+    "heroImage": "/assets/images/jvGr0RTMInClAF2QT0iQSaByfE.webp",
+    "bio": "Product Designer with 5+ years of experience turning complex systems into intuitive, scalable digital products. I don’t just bridge design and strategy. I craft high-impact user experiences from the first concept to the final pixel.",
+    "resume": "/assets/Resume-mohebbi.pdf",
+    "resumeFileName": "Resume-Mohebbi.pdf",
+    "resumeLabel": "Download Resume"
+  },
+  "sections": [
+    {
+      "id": "work",
+      "type": "work",
+      "visible": true,
+      "kicker": "// Featured works",
+      "title": "These are ones that taught me the most"
+    },
+    {
+      "id": "experience",
+      "type": "experience",
+      "visible": true,
+      "kicker": "//Experience",
+      "title": "Where i'm good and where i learned from",
+      "items": [
+        {
+          "company": "SnappPay",
+          "logo": "/assets/images/Rk1npsW6CWkdNeAhnwtnGuspwo.webp",
+          "title": "Product Designer",
+          "dates": "2025 –",
+          "span": "Present",
+          "tags": [
+            "Wallet",
+            "Fintech",
+            "Design systems",
+            "Figma"
+          ],
+          "highlight": "Designing core financial products, including the SnappPay Wallet.",
+          "body": "I focus on scalable, user-centric experiences for fintech services, from customer-facing flows such as Cashback, Gift Card, Gold purchase, and withdrawals to back-office dashboards. I work with Product, Research, Data, and Engineering, and keep the work aligned with the design system.",
+          "logoWhite": false,
+          "current": true
+        },
+        {
+          "company": "SetareAval (MCI)",
+          "logo": "/assets/images/PKL0cOBwT5LveHXGW1hSFhHajSE.webp",
+          "title": "Product Designer",
+          "dates": "2023 – 2025",
+          "span": "2 yrs 1 mos",
+          "tags": [
+            "Loans",
+            "Dashboards",
+            "UX"
+          ],
+          "highlight": "Led design of the Setareh-Yek loan platform, which has distributed over 500 billion toman in loans.",
+          "body": "I designed the loan acquisition and management experience for users, vendors, and administrators, including the application flow, installment tools, dashboards, campaign pages, and credit-scoring checks.",
+          "logoWhite": false,
+          "current": false
+        },
+        {
+          "company": "SetareAval (MCI)",
+          "logo": "/assets/images/PKL0cOBwT5LveHXGW1hSFhHajSE.webp",
+          "title": "UX/UI Designer",
+          "dates": "2021 – 2023",
+          "span": "1 yr 11 mos",
+          "tags": [
+            "Figma",
+            "Design system",
+            "Usability testing"
+          ],
+          "highlight": "Contributed to the Morph Design System, now past 7,800 Figma community duplicates.",
+          "body": "I worked on SetareYek, SetareSim, and Rondtarin with five designers. I migrated 10+ services from Adobe XD to Figma, redesigned a responsive B2B dashboard used by Asanpardakht, HamrahCard, and Parsian, and designed the SetareSim e-commerce platform.",
+          "logoWhite": false,
+          "current": false
+        },
+        {
+          "company": "Rahnema College",
+          "logo": "/assets/images/rahnema.webp",
+          "title": "Product Design Mentor",
+          "dates": "2025 – 2026",
+          "span": "In progress",
+          "tags": [
+            "Mentorship",
+            "UX research",
+            "Design systems"
+          ],
+          "highlight": "Mentoring students in the Product Design Bootcamp.",
+          "body": "I guide students on UX research, UI design, design systems, and AR/VR design through feedback sessions, real-world product challenges, and reviews of the projects they build during the course.",
+          "logoWhite": true,
+          "current": true
+        },
+        {
+          "company": "Cando",
+          "logo": "/assets/images/cando.webp",
+          "title": "Product Design Instructor",
+          "dates": "2025",
+          "span": "3 mos",
+          "tags": [
+            "Teaching",
+            "Figma",
+            "UX research"
+          ],
+          "highlight": "Teaching the Product Design course at Cando.",
+          "body": "I teach product design fundamentals, UX research, benchmarking, UI design, Figma, and portfolio development, and I lead workshops on resume writing and building a professional social-media presence.",
+          "logoWhite": true,
+          "current": false
+        }
+      ]
+    },
+    {
+      "id": "service",
+      "type": "services",
+      "visible": true,
+      "kicker": "// Services i provide",
+      "title": "I can help you with these things",
+      "items": [
+        "UI & Product Design",
+        "Design Engineering",
+        "Design Systems",
+        "Interaction & Motion Design"
+      ]
+    },
+    {
+      "id": "built",
+      "type": "cards",
+      "visible": false,
+      "kicker": "// What I've built",
+      "title": "Things I've made and shipped",
+      "homeLimit": 3,
+      "page": {
+        "enabled": true,
+        "slug": "built",
+        "documentTitle": "What I've built - Mohebbiam"
+      },
+      "items": []
+    },
+    {
+      "id": "writing",
+      "type": "articles",
+      "visible": false,
+      "kicker": "// What I've written",
+      "title": "Articles and notes on product design",
+      "homeLimit": 3,
+      "page": {
+        "enabled": true,
+        "slug": "writing",
+        "documentTitle": "What I've written - Mohebbiam"
+      },
+      "items": []
+    },
+    {
+      "id": "learn",
+      "type": "videos",
+      "visible": true,
+      "kicker": "// Learn together",
+      "title": "Latest videos from my YouTube channel",
+      "homeLimit": 3,
+      "page": {
+        "enabled": true,
+        "slug": "learn-together",
+        "documentTitle": "Learn together - Mohebbiam"
+      },
+      "items": [
+        {
+          "id": "GwUyg7FzmxI",
+          "title": "Figma Variables - وریبل در فیگما",
+          "thumbnail": "/assets/videos/GwUyg7FzmxI.webp",
+          "duration": "22:56",
+          "date": "Sep 20, 2026",
+          "description": "آموزش کامل وریبل‌ها (Variables) در فیگما؛ از صفر تا طراحی تم‌های رنگی و دیزاین سیستم 🧩🎨",
+          "tag": "Variables"
+        },
+        {
+          "id": "tv3JLCZKdz8",
+          "title": "Figma Slot - اسلات در فیگما",
+          "thumbnail": "/assets/videos/tv3JLCZKdz8.webp",
+          "duration": "11:35",
+          "date": "Aug 21, 2026",
+          "description": "توی این ویدیو به سراغ یکی از تکنیک‌های فوق‌العاده کاربردی در ساخت دیزاین سیستم و کامپوننت‌های پیشرفته فیگما یعنی الگوی اسلات (Slot Components) رفتیم.",
+          "tag": "Slot"
+        },
+        {
+          "id": "RgPlWTEAI04",
+          "title": "Figma Effects (Shaders Tutorial) - (Shaders آموزش ) افکت‌ها در فیگما",
+          "thumbnail": "/assets/videos/RgPlWTEAI04.webp",
+          "duration": "21:50",
+          "date": "Aug 7, 2026",
+          "description": "آموزش سیر تا پیاز افکت‌ها، شیدرها و Effect Styles در فیگما 🪄✨",
+          "tag": "Effects"
+        },
+        {
+          "id": "-V-ewM5004o",
+          "title": "استایل‌ها در فیگما - Figma Styles",
+          "thumbnail": "/assets/videos/-V-ewM5004o.webp",
+          "duration": "18:08",
+          "date": "Jul 25, 2026",
+          "description": "آموزش کامل و اصولی استایل‌ها (Styles) در فیگما 🎨🖌️",
+          "tag": "Styles"
+        },
+        {
+          "id": "xA4r1bJQLpI",
+          "title": "Figma Component - آموزش کامپوننت فیگما",
+          "thumbnail": "/assets/videos/xA4r1bJQLpI.webp",
+          "duration": "21:57",
+          "date": "Jul 18, 2026",
+          "description": "یادگیری اصولی کامپوننت‌ها در فیگما؛🔥",
+          "tag": "Component"
+        },
+        {
+          "id": "sU86ymUEYNU",
+          "title": "آموزش فیگما موشن - Figma Motion",
+          "thumbnail": "/assets/videos/sU86ymUEYNU.webp",
+          "duration": "20:30",
+          "date": "Jul 6, 2026",
+          "description": "چطور در فیگما مثل یک حرفه‌ای انیمیشن و موشن طراحی کنیم؟",
+          "tag": "Motion"
+        },
+        {
+          "id": "oiaVm8OOTDs",
+          "title": "آموزش قابلیت Auto-Layout در فیگما - Auto-Layout Tutorial in Figma",
+          "thumbnail": "/assets/videos/oiaVm8OOTDs.webp",
+          "duration": "19:12",
+          "date": "Jun 20, 2026",
+          "description": "توی این ویدیو رفتیم سراغ یکی از مهم‌ترین و کاربردی‌ترین قابلیت‌های فیگما یعنی Auto Layout!",
+          "tag": "Auto Layout"
+        },
+        {
+          "id": "KysqbO60QpI",
+          "title": "آشنایی با ابزارهای فیگما - Introduction to Figma Tools",
+          "thumbnail": "/assets/videos/KysqbO60QpI.webp",
+          "duration": "26:03",
+          "date": "Jun 20, 2026",
+          "description": "توی این ویدیو میریم سراغ بررسی ابزارهای مختلف فیگما و یاد میگیریم چجوری تو Figma Community برای خودمون پروفایل بسازیم.",
+          "tag": "Tools"
+        },
+        {
+          "id": "z6uYh7uYcmU",
+          "title": "آشنایی با فیگما - Getting Started with Figma",
+          "thumbnail": "/assets/videos/z6uYh7uYcmU.webp",
+          "duration": "16:04",
+          "date": "Jun 12, 2026",
+          "description": "توی این ویدیو سراغ نرم‌افزار فیگما رفتیم و قراره باهاش آشنا بشیم.",
+          "tag": "Getting Started"
+        },
+        {
+          "id": "M-8yB27FSrA",
+          "title": "آموزش پروتوتایپ فیگما - Figma Prototype",
+          "thumbnail": "/assets/videos/M-8yB27FSrA.webp",
+          "duration": "25:43",
+          "date": "May 22, 2026",
+          "description": "در این ویدیو به آموزش قابلیت پروتوتایپ نرم‌افزار Figma خواهیم پرداخت.",
+          "tag": "Prototype"
+        }
+      ]
+    },
+    {
+      "id": "words",
+      "type": "testimonials",
+      "visible": true,
+      "kicker": "// good words",
+      "title": "some good words from people I've worked with",
+      "items": [
+        {
+          "quote": "Working with Moheb was a different experience. He didn't just deliver designs he delivered a working product.",
+          "name": "Hossein Mahmoudvand",
+          "role": "Product Design Lead, SnappPay",
+          "photo": "/assets/images/Pbqe6AAIA2xNq5NIZmBMy2YGg8.webp"
+        },
+        {
+          "quote": "Working with Moheb on product felt easy. He listens, he designs with the real flow in mind, and the files he hands over are already ready to build.",
+          "name": "Mohammad Hossein Ahmadi",
+          "role": "Product Designer, SnappMarket",
+          "photo": "/assets/images/mohammad-hossein-ahmadi.webp"
+        },
+        {
+          "quote": "As an engineer, Moheb is the designer I trust. The specs were clear, the edge cases were there, and I could build without going back and forth.",
+          "name": "Mahdi Saedi",
+          "role": "Software Engineer, SetareAval",
+          "photo": "/assets/images/mahdi-saedi.webp"
+        }
+      ]
+    }
+  ],
+  "contact": {
+    "kicker": "// Contact me",
+    "title": "Feel free to send me a message, I will get back to you as soon as possible.",
+    "cardLine": "Mohammad Mahdi Mohebi · Product Designer",
+    "successMessage": "I'll reach you soon",
+    "workTitle": "Have a look at some of my work"
+  },
+  "footer": {
+    "lines": [
+      "Thank you, for visiting here",
+      "Let's create something beautiful"
+    ],
+    "copyright": "@Moheb 2026"
+  },
+  "socials": [
+    {
+      "href": "https://dribbble.com/mohebbiam",
+      "label": "Dribbble",
+      "icon": "/assets/social/dribbble.png",
+      "mono": true
+    },
+    {
+      "href": "https://www.instagram.com/mohebbiam",
+      "label": "Instagram",
+      "icon": "/assets/social/instagram.png",
+      "mono": true
+    },
+    {
+      "href": "https://youtube.com/@ProductCastX",
+      "label": "YouTube",
+      "icon": "/assets/social/youtube.png",
+      "mono": false
+    },
+    {
+      "href": "mailto:mahdi.mohebbi.m@gmail.com",
+      "label": "Gmail",
+      "icon": "/assets/social/gmail.png",
+      "mono": false
+    },
+    {
+      "href": "https://www.linkedin.com/in/mohebbiam",
+      "label": "LinkedIn",
+      "icon": "/assets/social/linkedin.png",
+      "mono": false
+    },
+    {
+      "href": "https://t.me/mohammadmahdiiam",
+      "label": "Telegram",
+      "icon": "/assets/social/telegram.png",
+      "mono": false
+    },
+    {
+      "href": "https://www.figma.com/@mohebbiam",
+      "label": "Figma",
+      "icon": "/assets/social/figma.png",
+      "mono": false
+    }
+  ]
+}

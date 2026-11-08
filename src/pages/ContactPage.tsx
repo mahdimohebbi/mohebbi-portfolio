@@ -1,12 +1,16 @@
 import { FormEvent, useState } from "react";
 import { ProjectCard } from "../components/ProjectCard";
-import { Testimonials } from "../components/Testimonials";
-import { asset, projects, serviceOptions, services } from "../data/content";
+import { ServiceList } from "../components/Sections";
 import { Socials } from "../components/Socials";
+import { Testimonials } from "../components/Testimonials";
+import { contact, findSection, profile, projects } from "../data/content";
 
 export function ContactPage() {
   const [sent, setSent] = useState(false);
   const featured = projects.slice(0, 2);
+  const work = findSection("work");
+  const services = findSection("services");
+  const testimonials = findSection("testimonials");
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,8 +24,8 @@ export function ContactPage() {
   return (
     <main>
       <section className="section inner contact-hero">
-        <p className="kicker">// Contact me</p>
-        <h2>Feel free to send me a message, I will get back to you as soon as possible.</h2>
+        <p className="kicker">{contact.kicker}</p>
+        <h2>{contact.title}</h2>
         <div className="contact-grid">
           <form onSubmit={onSubmit}>
             <label>
@@ -32,55 +36,57 @@ export function ContactPage() {
               Email*
               <input name="email" type="email" required placeholder="john@framer.com" autoComplete="email" />
             </label>
-            <label>
-              Service*
-              <select name="service" required defaultValue="UI & Product Design">
-                {serviceOptions.map((option) => (
-                  <option key={option}>{option}</option>
-                ))}
-              </select>
-            </label>
+            {services ? (
+              <label>
+                Service*
+                <select name="service" required defaultValue={services.items[0]}>
+                  {services.items.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </select>
+              </label>
+            ) : null}
             <label>
               Message
               <textarea name="message" placeholder="Enter your message" />
             </label>
             <button type="submit">Submit</button>
-            {sent ? <p className="success">I'll reach you soon</p> : null}
+            {sent ? <p className="success">{contact.successMessage}</p> : null}
           </form>
           <aside className="contact-card">
-            <img className="portrait-lg" src={asset("iNf1aETYjPNKr0YUXZwmPYoK7ZI.webp")} alt="Portrait" />
-            <span className="tag">AVAILABLE</span>
-            <p className="who-line">Zolt Mercer · Design engineer</p>
+            {profile.avatar ? <img className="portrait-lg" src={profile.avatar} alt="Portrait" /> : null}
+            {profile.available ? <span className="tag">{profile.availableText.toUpperCase()}</span> : null}
+            <p className="who-line">{contact.cardLine}</p>
             <Socials />
           </aside>
         </div>
       </section>
 
-      <section className="section inner" id="work">
-        <p className="kicker">// Featured works</p>
-        <h2>Have a look at some of my work</h2>
-        <div className="work-grid">
-          {featured.map((project) => (
-            <ProjectCard key={project.slug} project={project} layout="stack" />
-          ))}
-        </div>
-      </section>
+      {work && featured.length ? (
+        <section className="section inner" id="work">
+          {work.kicker ? <p className="kicker">{work.kicker}</p> : null}
+          <h2>{contact.workTitle}</h2>
+          <div className="work-grid">
+            {featured.map((project) => (
+              <ProjectCard key={project.slug} project={project} layout="stack" />
+            ))}
+          </div>
+        </section>
+      ) : null}
 
-      <section className="section inner" id="service">
-        <p className="kicker">// Services i propvide</p>
-        <h2>I can help you with these things</h2>
-        <div className="services">
-          {services.map((service) => (
-            <p className="service" key={service}>
-              {service}
-            </p>
-          ))}
-        </div>
-      </section>
+      {services ? (
+        <section className="section inner" id="service">
+          {services.kicker ? <p className="kicker">{services.kicker}</p> : null}
+          <h2>{services.title}</h2>
+          <ServiceList items={services.items} />
+        </section>
+      ) : null}
 
-      <div className="inner">
-        <Testimonials />
-      </div>
+      {testimonials ? (
+        <div className="inner">
+          <Testimonials section={testimonials} />
+        </div>
+      ) : null}
     </main>
   );
 }
