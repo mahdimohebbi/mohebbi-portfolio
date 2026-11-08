@@ -8,8 +8,8 @@ import { CV_FILENAME, CV_URL, asset, experience, projects, services, videos } fr
 export function HomePage() {
   const timelineRef = useRef<HTMLDivElement>(null);
   const [line, setLine] = useState({ top: 0, height: 0, fill: 0, active: 0 });
-  const feature = projects[0];
-  const stacked = projects.filter((project) => project.homeLayout === "stack");
+  const feature = projects.find((project) => project.homeLayout === "feature") ?? projects[0];
+  const stacked = projects.filter((project) => project.homeLayout === "stack" && project !== feature);
   const reverse = projects.find((project) => project.homeLayout === "reverse");
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export function HomePage() {
         <p className="kicker">// Featured works</p>
         <h2>These are ones that taught me the most</h2>
         <div className="work-list">
-          <ProjectCard project={feature} layout="feature" />
+          {feature ? <ProjectCard project={feature} layout="feature" /> : null}
           <div className="work-grid">
             {stacked.map((project) => (
               <ProjectCard key={project.slug} project={project} layout="stack" />

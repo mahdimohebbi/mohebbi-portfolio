@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Shell } from "./components/Shell";
 import { CaseStudyPage } from "./pages/CaseStudyPage";
@@ -6,6 +6,9 @@ import { ContactPage } from "./pages/ContactPage";
 import { HomePage } from "./pages/HomePage";
 import { LearnPage } from "./pages/LearnPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+
+// Loaded only on /admin so visitors never download the editor.
+const AdminApp = lazy(() => import("./admin/AdminApp"));
 
 export default function App() {
   const { pathname, hash } = useLocation();
@@ -20,6 +23,14 @@ export default function App() {
     }
     window.scrollTo(0, 0);
   }, [pathname, hash]);
+
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) {
+    return (
+      <Suspense fallback={null}>
+        <AdminApp />
+      </Suspense>
+    );
+  }
 
   return (
     <Shell>
