@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { footer, profile } from "../data/content";
+import { DotField } from "./DotField";
 import { Socials } from "./Socials";
 
 function Icon({ name }: { name: "sun" | "moon" }) {
@@ -31,6 +32,7 @@ export function Shell({ children }: { children: ReactNode }) {
 
   return (
     <div className="shell">
+      <DotField />
       <header className="topbar">
         <Link to="/" className="who">
           {profile.avatar ? <img src={profile.avatar} alt={profile.name} /> : null}
