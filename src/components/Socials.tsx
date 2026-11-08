@@ -7,7 +7,7 @@ export function Socials() {
         const mail = item.href.startsWith("mailto:");
         return (
           <a
-            key={item.id}
+            key={item.label}
             href={item.href}
             aria-label={item.label}
             {...(mail ? {} : { target: "_blank", rel: "noreferrer" })}

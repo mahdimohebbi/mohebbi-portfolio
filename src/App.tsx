@@ -4,8 +4,8 @@ import { Shell } from "./components/Shell";
 import { CaseStudyPage } from "./pages/CaseStudyPage";
 import { ContactPage } from "./pages/ContactPage";
 import { HomePage } from "./pages/HomePage";
-import { LearnPage } from "./pages/LearnPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { SectionPage } from "./pages/SectionPage";
 
 // Loaded only on /admin so visitors never download the editor.
 const AdminApp = lazy(() => import("./admin/AdminApp"));
@@ -38,7 +38,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/case-study/:slug" element={<CaseStudyPage />} />
         <Route path="/contact-me" element={<ContactPage />} />
-        <Route path="/learn-together" element={<LearnPage />} />
+        <Route path="/:slug" element={<SectionPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Shell>

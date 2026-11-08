@@ -10,8 +10,9 @@
 
 import { createHmac, timingSafeEqual } from "node:crypto";
 
-export const WORKS_PATH = "src/data/works.json";
+export const FILES = { works: "src/data/works.json", site: "src/data/site.json" };
 export const IMAGE_DIR = "public/assets/images";
+export const DOC_DIR = "public/assets/files";
 
 const COOKIE = "admin_session";
 const SESSION_SECONDS = 60 * 60 * 12;
@@ -101,7 +102,14 @@ export async function github(path, init = {}) {
   return response.json();
 }
 
-export async function readWorks() {
-  const file = await github(`/contents/${WORKS_PATH}?ref=${encodeURIComponent(branch())}`);
-  return { works: JSON.parse(Buffer.from(file.content, "base64").toString("utf8")), sha: file.sha };
+/** Read one of FILES from GitHub at a branch or commit. */
+export async function readFile(key, ref = branch()) {
+  const file = await github(`/contents/${FILES[key]}?ref=${encodeURIComponent(ref)}`);
+  return { data: JSON.parse(Buffer.from(file.content, "base64").toString("utf8")), sha: file.sha };
+}
+
+/** Store bytes as a Git blob; it only ships once a save commits it. */
+export async function createBlob(base64) {
+  const blob = await github("/git/blobs", { method: "POST", body: JSON.stringify({ content: base64, encoding: "base64" }) });
+  return blob.sha;
 }

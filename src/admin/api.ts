@@ -1,4 +1,4 @@
-import type { Work } from "../data/content";
+import type { Site, Work } from "../data/content";
 
 export class Unauthorized extends Error {}
 
@@ -14,18 +14,32 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export type Upload = { path: string; url: string; sha: string };
+export type Content = { works: Work[]; site: Site };
+export type Shas = { works: string; site: string };
 
 export const api = {
   login: (password: string) => request("login", { method: "POST", body: JSON.stringify({ password }) }),
   logout: () => request("login", { method: "DELETE" }),
-  load: () => request<{ works: Work[]; sha: string }>("works"),
-  save: (works: Work[], sha: string, uploads: Upload[]) =>
-    request<{ sha: string }>("works", { method: "PUT", body: JSON.stringify({ works, sha, uploads }) }),
+  load: () => request<Content & { shas: Shas }>("content"),
+  save: (content: Content, shas: Shas, uploads: Upload[]) =>
+    request<{ shas: Shas }>("content", { method: "PUT", body: JSON.stringify({ ...content, shas, uploads }) }),
   upload: (type: string, data: string) => request<Upload>("upload", { method: "POST", body: JSON.stringify({ type, data }) }),
+  youtube: (url: string) => request<{ id: string; title: string; image: string }>("youtube", { method: "POST", body: JSON.stringify({ url }) }),
 };
 
+export const toBase64 = (blob: Blob) =>
+  new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const url = reader.result as string;
+      resolve(url.slice(url.indexOf(",") + 1));
+    };
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(blob);
+  });
+
 /** Resize in the browser and re-encode as WebP so uploads stay small and the site stays fast. */
-export async function prepareImage(file: File, maxWidth: number): Promise<{ type: string; data: string }> {
+export async function prepareImage(file: Blob, maxWidth: number): Promise<{ type: string; data: string }> {
   const bitmap = await createImageBitmap(file);
   const scale = Math.min(1, maxWidth / bitmap.width);
   const canvas = document.createElement("canvas");
@@ -41,12 +55,5 @@ export async function prepareImage(file: File, maxWidth: number): Promise<{ type
   let blob = await encode("image/webp", 0.82);
   // Browsers without WebP encoding fall back to PNG; JPEG is much smaller for large photos.
   if (blob.type !== "image/webp" && maxWidth > 400) blob = await encode("image/jpeg", 0.85);
-
-  const dataUrl = await new Promise<string>((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = () => reject(reader.error);
-    reader.readAsDataURL(blob);
-  });
-  return { type: blob.type, data: dataUrl.slice(dataUrl.indexOf(",") + 1) };
+  return { type: blob.type, data: await toBase64(blob) };
 }
