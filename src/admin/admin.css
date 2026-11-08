@@ -146,16 +146,17 @@
   font: inherit;
   line-height: 1.45;
 }
-.admin textarea { resize: vertical; }
+.admin textarea { min-height: 0; resize: vertical; }
 .admin input:focus, .admin textarea:focus { outline: 2px solid var(--color-accent); outline-offset: -1px; }
 .admin input::placeholder, .admin textarea::placeholder { color: var(--color-text-muted); opacity: 0.6; }
 
 .admin-prefix { display: flex; align-items: center; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-input); }
 .admin-prefix span { padding-left: 12px; color: var(--color-text-muted); white-space: nowrap; }
-.admin .admin-prefix input { padding-left: 0; border: 0; background: transparent; }
+.admin .admin-prefix input:not([type]) { padding-left: 0; border: 0; background: transparent; }
 
-.admin-toggle, .admin-checks label { display: flex; gap: 8px; align-items: center; color: var(--color-text-primary); cursor: pointer; }
-.admin-toggle input, .admin-checks input { width: 16px; height: 16px; accent-color: var(--color-accent); }
+/* The site's global label rule stacks label content in a column; reset it here. */
+.admin-toggle, .admin-checks label { display: flex; flex-direction: row; gap: 8px; align-items: center; color: var(--color-text-primary); font-size: 15px; cursor: pointer; }
+.admin-toggle input, .admin-checks input { flex: none; width: 16px; height: 16px; margin: 0; accent-color: var(--color-accent); }
 .admin-checks { display: flex; flex-direction: column; gap: 10px; }
 
 .admin-segments { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
@@ -221,11 +222,12 @@
 @media (max-width: 860px) {
   .admin-bar { padding: 12px 16px; }
   .admin-status { margin: 12px 16px 0; }
-  .admin-layout { grid-template-columns: 1fr; padding: 16px; }
+  .admin-layout { grid-template-columns: minmax(0, 1fr); padding: 16px; }
   .admin-list { position: static; }
   .admin-section { padding: 18px 16px; }
 }
 @media (max-width: 560px) {
   .admin-grid, .admin-segments { grid-template-columns: 1fr; }
   .admin-prefix span { display: none; }
+  .admin .admin-prefix input:not([type]) { padding-left: 12px; }
 }
