@@ -6,7 +6,7 @@ const RADIUS = 1;
 // How far the cursor reaches, and how strongly fast movement pushes and lights dots.
 const REACH = 150;
 const PUSH = 0.045;
-const GLOW = 0.008;
+const GLOW = 0.012;
 const MAX_OFFSET = 7;
 // Spring back to rest; lower damping = more wobble.
 const SPRING = 0.08;
@@ -47,9 +47,8 @@ export function DotField() {
     const readColors = () => {
       const styles = getComputedStyle(root);
       dotColor = styles.getPropertyValue("--color-dot").trim() || "rgba(255,255,255,0.16)";
-      // Dots light up near-white on the dark theme; white can't show on the light theme, so use the accent there.
-      const color = root.dataset.theme === "light" ? "--color-accent" : "--color-text-primary";
-      const hex = /^#([0-9a-f]{6})$/i.exec(styles.getPropertyValue(color).trim())?.[1];
+      // Dots light up in the site's accent color.
+      const hex = /^#([0-9a-f]{6})$/i.exec(styles.getPropertyValue("--color-accent").trim())?.[1];
       if (hex) glowRgb = [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16)).join(", ");
     };
 
@@ -89,9 +88,9 @@ export function DotField() {
         if (glow[i] <= 0.02) continue;
         const x = (i % columns) * GAP + GAP / 2 + offsetX[i];
         const y = Math.floor(i / columns) * GAP + GAP / 2 + offsetY[i];
-        context.fillStyle = `rgba(${glowRgb}, ${Math.min(0.95, 0.16 + glow[i] * 0.85)})`;
+        context.fillStyle = `rgba(${glowRgb}, ${Math.min(1, 0.25 + glow[i])})`;
         context.beginPath();
-        context.arc(x, y, RADIUS + glow[i] * 0.8, 0, Math.PI * 2);
+        context.arc(x, y, RADIUS + glow[i] * 0.9, 0, Math.PI * 2);
         context.fill();
       }
     };
