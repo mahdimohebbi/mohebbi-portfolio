@@ -1,7 +1,7 @@
 [
   {
     "slug": "building-a-perfect-design-system-from-zero",
-    "visible": true,
+    "visible": false,
     "title": "Building a new experience",
     "duration": "1 Years",
     "year": "2025",
@@ -169,7 +169,7 @@
   },
   {
     "slug": "redesigning-the-core-dashboard-of-saas-product",
-    "visible": true,
+    "visible": false,
     "title": "Redesigning the Core Dashboard of saas product",
     "duration": "3 month",
     "year": "2024",
@@ -303,7 +303,7 @@
   },
   {
     "slug": "launching-a-marketing-site-in-5-days",
-    "visible": true,
+    "visible": false,
     "title": "launching a Marketing Site in 5 Days",
     "duration": "1 Week",
     "year": "2025",
@@ -442,7 +442,7 @@
   },
   {
     "slug": "prototyping-an-onboarding-flow-that-actually-converts",
-    "visible": true,
+    "visible": false,
     "title": "Prototyping an Onboarding Flow That Actually Converts",
     "duration": "6 Weeks",
     "year": "2024",
