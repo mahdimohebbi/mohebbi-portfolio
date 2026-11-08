@@ -12,11 +12,15 @@ const MAX_OFFSET = 7;
 const SPRING = 0.08;
 const DAMPING = 0.82;
 const GLOW_DECAY = 0.94;
+// Soft light that follows the cursor, even when it isn't shaking.
+const LIGHT_REACH = 190;
+const LIGHT_DOTS = 0.32;
 
 /**
- * Interactive version of the dotted background. Moving or shaking the cursor
- * nudges nearby dots away and makes them glow a little; they settle back after.
- * Draws only while something is moving. Off for touch screens and reduced motion,
+ * Interactive version of the dotted background. A soft light follows the cursor
+ * and brightens nearby dots; shaking the cursor also nudges them away and makes
+ * them glow in the accent color, and they settle back after. Draws only while
+ * something changes. Off for touch screens and reduced motion,
  * where the static CSS dots stay.
  */
 export function DotField() {
@@ -41,15 +45,23 @@ export function DotField() {
     let glow = new Float32Array(0);
     let dotColor = "";
     let glowRgb = "255, 92, 0";
+    let textRgb = "240, 240, 240";
+    let light = "rgba(255, 255, 255, 0.045)";
     let frame = 0;
     let last: { x: number; y: number; t: number } | null = null;
+    let cursor: { x: number; y: number } | null = null;
 
     const readColors = () => {
       const styles = getComputedStyle(root);
       dotColor = styles.getPropertyValue("--color-dot").trim() || "rgba(255,255,255,0.16)";
-      const accent = styles.getPropertyValue("--color-accent").trim();
-      const hex = /^#([0-9a-f]{6})$/i.exec(accent)?.[1];
-      if (hex) glowRgb = [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16)).join(", ");
+      const rgb = (name: string, fallback: string) => {
+        const hex = /^#([0-9a-f]{6})$/i.exec(styles.getPropertyValue(name).trim())?.[1];
+        return hex ? [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16)).join(", ") : fallback;
+      };
+      glowRgb = rgb("--color-accent", glowRgb);
+      textRgb = rgb("--color-text-primary", textRgb);
+      // White light disappears on the light theme's near-white background, so warm it there.
+      light = root.dataset.theme === "light" ? `rgba(${glowRgb}, 0.05)` : "rgba(255, 255, 255, 0.045)";
     };
 
     const resize = () => {
@@ -70,7 +82,14 @@ export function DotField() {
 
     const draw = () => {
       context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      // Resting dots share one path; glowing dots are drawn on top with their own alpha.
+      if (cursor) {
+        const spot = context.createRadialGradient(cursor.x, cursor.y, 0, cursor.x, cursor.y, LIGHT_REACH);
+        spot.addColorStop(0, light);
+        spot.addColorStop(1, "rgba(0, 0, 0, 0)");
+        context.fillStyle = spot;
+        context.fillRect(cursor.x - LIGHT_REACH, cursor.y - LIGHT_REACH, LIGHT_REACH * 2, LIGHT_REACH * 2);
+      }
+      // Resting dots share one path; lit and glowing dots are drawn on top with their own alpha.
       context.fillStyle = dotColor;
       context.beginPath();
       for (let row = 0; row < rows; row += 1) {
@@ -84,6 +103,26 @@ export function DotField() {
         }
       }
       context.fill();
+      if (cursor) {
+        const minColumn = Math.max(0, Math.floor((cursor.x - LIGHT_REACH) / GAP));
+        const maxColumn = Math.min(columns - 1, Math.ceil((cursor.x + LIGHT_REACH) / GAP));
+        const minRow = Math.max(0, Math.floor((cursor.y - LIGHT_REACH) / GAP));
+        const maxRow = Math.min(rows - 1, Math.ceil((cursor.y + LIGHT_REACH) / GAP));
+        for (let row = minRow; row <= maxRow; row += 1) {
+          for (let column = minColumn; column <= maxColumn; column += 1) {
+            const i = row * columns + column;
+            if (glow[i] > 0.02) continue;
+            const x = column * GAP + GAP / 2 + offsetX[i];
+            const y = row * GAP + GAP / 2 + offsetY[i];
+            const distance = Math.hypot(x - cursor.x, y - cursor.y);
+            if (distance > LIGHT_REACH) continue;
+            context.fillStyle = `rgba(${textRgb}, ${LIGHT_DOTS * (1 - distance / LIGHT_REACH) ** 1.5})`;
+            context.beginPath();
+            context.arc(x, y, RADIUS, 0, Math.PI * 2);
+            context.fill();
+          }
+        }
+      }
       for (let i = 0; i < glow.length; i += 1) {
         if (glow[i] <= 0.02) continue;
         const x = (i % columns) * GAP + GAP / 2 + offsetX[i];
@@ -111,10 +150,16 @@ export function DotField() {
       frame = moving ? requestAnimationFrame(step) : 0;
     };
 
+    const redraw = () => {
+      if (!frame) frame = requestAnimationFrame(step);
+    };
+
     const onMove = (event: PointerEvent) => {
       const now = performance.now();
       const previous = last;
       last = { x: event.clientX, y: event.clientY, t: now };
+      cursor = { x: event.clientX, y: event.clientY };
+      redraw();
       if (!previous || now - previous.t > 100) return;
       // Speed in px per ms; slow moves barely register, shaking builds up quickly.
       const speed = Math.hypot(event.clientX - previous.x, event.clientY - previous.y) / Math.max(1, now - previous.t);
@@ -138,7 +183,14 @@ export function DotField() {
           glow[i] = Math.min(1, glow[i] + speed * falloff * GLOW * GAP);
         }
       }
-      if (!frame) frame = requestAnimationFrame(step);
+    };
+
+    // Turn the light off when the cursor leaves the window.
+    const onLeave = (event: PointerEvent) => {
+      if (event.relatedTarget) return;
+      cursor = null;
+      last = null;
+      redraw();
     };
 
     // Re-read colors when the theme toggles.
@@ -152,11 +204,13 @@ export function DotField() {
     resize();
     window.addEventListener("resize", resize);
     window.addEventListener("pointermove", onMove, { passive: true });
+    document.addEventListener("pointerout", onLeave);
     return () => {
       cancelAnimationFrame(frame);
       themeObserver.disconnect();
       window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", onMove);
+      document.removeEventListener("pointerout", onLeave);
       root.classList.remove("dots-live");
     };
   }, []);
