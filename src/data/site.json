@@ -320,13 +320,13 @@
       "href": "https://dribbble.com/mohebbiam",
       "label": "Dribbble",
       "icon": "/assets/social/dribbble.png",
-      "mono": true
+      "mono": false
     },
     {
       "href": "https://www.instagram.com/mohebbiam",
       "label": "Instagram",
       "icon": "/assets/social/instagram.png",
-      "mono": true
+      "mono": false
     },
     {
       "href": "https://youtube.com/@ProductCastX",
