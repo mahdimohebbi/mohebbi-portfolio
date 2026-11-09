@@ -357,6 +357,18 @@
       "label": "Figma",
       "icon": "/assets/social/figma.png",
       "mono": false
+    },
+    {
+      "href": "https://medium.com/@mohebbim",
+      "label": "Medium",
+      "icon": "/assets/social/medium.png",
+      "mono": true
+    },
+    {
+      "href": "https://substack.com/@mohebbiam",
+      "label": "Substack",
+      "icon": "/assets/social/substack.png",
+      "mono": false
     }
   ]
 }
