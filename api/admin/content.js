@@ -4,6 +4,11 @@ const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const IMAGE = /^\/assets\/(images|videos|social)\/[A-Za-z0-9_.-]+\.(webp|png|jpe?g|svg)$/;
 const BLOCK_TYPES = new Set(["h", "p", "quote", "outcome", "wide", "pair"]);
 const SECTION_TYPES = new Set(["work", "experience", "services", "testimonials", "videos", "cards", "articles", "text"]);
+// Uploads may only be new files where /api/admin/upload puts them (random 12-character names).
+const UPLOAD_PATH = /^public\/assets\/(images\/[A-Za-z0-9_-]{12}\.(webp|png|jpg)|files\/[A-Za-z0-9_-]{12}\.pdf)$/;
+const BLOB_SHA = /^[0-9a-f]{40}$/;
+// Links on the site: web pages, email, or a page on this site.
+const LINK = /^(https?:\/\/[^\s]+|mailto:[^\s]+|\/(?!\/)[^\s]*)$/i;
 // Top-level paths the site already uses; a section page can't take them.
 const RESERVED = new Set(["admin", "api", "assets", "case-study", "contact-me"]);
 
@@ -24,6 +29,9 @@ export const PUT = handle(async (request) => {
   const { works, site, shas = {}, uploads = [] } = await request.json();
   validateWorks(works);
   validateSite(site);
+  if (!Array.isArray(uploads) || !uploads.every((upload) => UPLOAD_PATH.test(upload?.path ?? "") && BLOB_SHA.test(upload?.sha ?? ""))) {
+    fail("An uploaded file has an invalid location. Reload the panel and upload it again.");
+  }
 
   const [currentWorks, currentSite] = await Promise.all([readFile("works"), readFile("site")]);
   if (currentWorks.sha !== shas.works || currentSite.sha !== shas.site) {
@@ -68,6 +76,10 @@ const requireText = (value, message) => {
 const optionalImage = (value, message) => {
   if (!isText(value) || (value && !IMAGE.test(value))) fail(message);
 };
+const optionalLink = (value, message) => {
+  if (!isText(value) || (value.trim() && !LINK.test(value.trim()))) fail(message);
+};
+const LINK_HINT = "Use a full link starting with https://, a mailto: address, or a page on this site starting with /.";
 
 function validateWorks(works) {
   if (!Array.isArray(works)) fail("Featured works are missing.");
@@ -110,6 +122,7 @@ function validateSite(site) {
   socials.forEach((social, i) => {
     requireText(social.label, `Social link ${i + 1}: add a name.`);
     requireText(social.href, `Social link "${social.label}": add a link.`);
+    optionalLink(social.href, `Social link "${social.label}": ${LINK_HINT}`);
     if (!IMAGE.test(social.icon ?? "")) fail(`Social link "${social.label}": add an icon.`);
   });
 
@@ -122,6 +135,7 @@ function validateSite(site) {
     ids.add(section.id);
     if (typeof section.visible !== "boolean") fail(`${name}: visible must be true or false.`);
     requireText(section.title, `${name}: add a title.`);
+    if (section.type === "text") optionalLink(section.buttonUrl ?? "", `${name}: the button link isn't valid. ${LINK_HINT}`);
     if (section.type === "work" || section.type === "text") return;
     if (!Array.isArray(section.items)) fail(`${name}: items are missing.`);
     if ("page" in section) {
@@ -154,11 +168,13 @@ function validateSite(site) {
       }
       if (section.type === "cards") {
         requireText(item.title, `${label}: add a title.`);
+        optionalLink(item.url, `${label}: the link isn't valid. ${LINK_HINT}`);
         return optionalImage(item.image, `${label}: the image must be an uploaded image.`);
       }
       if (section.type === "articles") {
         requireText(item.title, `${label}: add a title.`);
         requireText(item.url, `${label}: add the link to the article.`);
+        optionalLink(item.url, `${label}: the link isn't valid. ${LINK_HINT}`);
         return optionalImage(item.image, `${label}: the image must be an uploaded image.`);
       }
     });
