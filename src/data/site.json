@@ -319,13 +319,13 @@
     {
       "href": "https://dribbble.com/mohebbiam",
       "label": "Dribbble",
-      "icon": "/assets/social/dribbble.png",
+      "icon": "/assets/social/dribbble-color.png",
       "mono": false
     },
     {
       "href": "https://www.instagram.com/mohebbiam",
       "label": "Instagram",
-      "icon": "/assets/social/instagram.png",
+      "icon": "/assets/social/instagram-color.png",
       "mono": false
     },
     {
