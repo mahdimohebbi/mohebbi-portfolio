@@ -126,7 +126,7 @@
     {
       "id": "built",
       "type": "cards",
-      "visible": false,
+      "visible": true,
       "kicker": "// What I've built",
       "title": "Things I've made and shipped",
       "homeLimit": 3,
@@ -135,7 +135,16 @@
         "slug": "built",
         "documentTitle": "What I've built - Mohebbiam"
       },
-      "items": []
+      "items": [
+        {
+          "title": "Netlane",
+          "description": "A menu bar app that shows your public IP's country flag, live upload and download speed, IP change alerts and a one-click speed test.",
+          "image": "/assets/images/netlane.webp",
+          "url": "https://netlane.mohebbi.top",
+          "label": "App",
+          "meta": "macOS · 2026"
+        }
+      ]
     },
     {
       "id": "writing",
