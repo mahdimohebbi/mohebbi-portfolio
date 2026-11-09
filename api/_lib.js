@@ -49,7 +49,11 @@ export const handle = (fn) => async (request) => {
 
 // --- Sessions: a signed, expiring cookie. Changing ADMIN_PASSWORD signs everyone out. ---
 
-const sign = (value) => createHmac("sha256", env("ADMIN_PASSWORD")).update(value).digest("base64url");
+// The signing key mixes in GITHUB_TOKEN (long and random), so a copied cookie can't
+// be used to guess the password offline.
+const sessionKey = () => createHmac("sha256", env("GITHUB_TOKEN")).update(`admin-session:${env("ADMIN_PASSWORD")}`).digest();
+
+const sign = (value) => createHmac("sha256", sessionKey()).update(value).digest("base64url");
 
 const safeEqual = (a, b) => {
   const left = Buffer.from(a);
