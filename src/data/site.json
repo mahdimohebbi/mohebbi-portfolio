@@ -143,6 +143,14 @@
           "url": "https://netlane.mohebbi.top",
           "label": "App",
           "meta": "macOS · 2026"
+        },
+        {
+          "title": "Senatex",
+          "description": "Website for Senatex, a textile manufacturer and importer and exporter of textile machinery and raw materials, in Persian, English and Chinese.",
+          "image": "/assets/images/senatex.webp",
+          "url": "https://senatex.ir",
+          "label": "Website",
+          "meta": "2026"
         }
       ]
     },
