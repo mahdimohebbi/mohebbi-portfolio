@@ -155,18 +155,28 @@
       ]
     },
     {
-      "id": "writing",
+      "id": "articles-links",
+      "visible": true,
+      "kicker": "// what i've written",
+      "title": "Articles & links",
       "type": "articles",
-      "visible": false,
-      "kicker": "// What I've written",
-      "title": "Articles and notes on product design",
+      "items": [
+        {
+          "title": "The Design Was Perfect. The Product Still Didn’t Ship",
+          "summary": "A flawless design can still fail to ship, because the real obstacles in product work are usually human, not technical. Craft gets a designer into the room, but soft skills decide what happens next",
+          "url": "https://medium.com/@mohebbim/the-design-was-perfect-the-product-still-didnt-ship-da6802ba24dc?sharedUserId=mohebbim",
+          "source": "Medium",
+          "date": "Oct 2026",
+          "readingTime": "10 min",
+          "image": "/assets/images/IL7MfaVIBduW.webp"
+        }
+      ],
       "homeLimit": 3,
       "page": {
         "enabled": true,
-        "slug": "writing",
-        "documentTitle": "What I've written - Mohebbiam"
-      },
-      "items": []
+        "slug": "articles-links",
+        "documentTitle": ""
+      }
     },
     {
       "id": "learn",
@@ -299,30 +309,6 @@
           "photo": "/assets/images/mahdi-saedi.webp"
         }
       ]
-    },
-    {
-      "id": "articles-links",
-      "visible": true,
-      "kicker": "// what i've written",
-      "title": "Articles & links",
-      "type": "articles",
-      "items": [
-        {
-          "title": "The Design Was Perfect. The Product Still Didn’t Ship",
-          "summary": "A flawless design can still fail to ship, because the real obstacles in product work are usually human, not technical. Craft gets a designer into the room, but soft skills decide what happens next",
-          "url": "https://medium.com/@mohebbim/the-design-was-perfect-the-product-still-didnt-ship-da6802ba24dc?sharedUserId=mohebbim",
-          "source": "Medium",
-          "date": "Oct 2026",
-          "readingTime": "10 min",
-          "image": "/assets/images/IL7MfaVIBduW.webp"
-        }
-      ],
-      "homeLimit": 3,
-      "page": {
-        "enabled": true,
-        "slug": "articles-links",
-        "documentTitle": ""
-      }
     }
   ],
   "contact": {
