@@ -1,3 +1,4 @@
+import { GradientButton } from "../components/GradientButton";
 import { SectionView } from "../components/Sections";
 import { profile, sections } from "../data/content";
 
@@ -13,9 +14,9 @@ export function HomePage() {
           <p className="role">{profile.role}</p>
           <p className="lede">{profile.bio}</p>
           {profile.resume ? (
-            <a className="cv" href={profile.resume} download={profile.resumeFileName || undefined}>
+            <GradientButton className="cv" href={profile.resume} download={profile.resumeFileName || undefined}>
               {profile.resumeLabel}
-            </a>
+            </GradientButton>
           ) : null}
         </div>
       </section>

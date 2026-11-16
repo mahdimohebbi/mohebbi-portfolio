@@ -233,10 +233,57 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   color: var(--color-button-text);
   font-family: var(--font-ui);
   font-weight: 700;
-  border: 1px solid var(--color-line);
-  transition: background-color 0.2s ease;
 }
-.cv:hover { background: #3a3a3a; }
+
+/* Gradient button (inspired by iconsax.io): drifting blurred color blobs. */
+.gradient-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  justify-content: center;
+  background: var(--color-button);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.3s ease;
+}
+.gradient-btn:active { transform: scale(0.94); }
+.gradient-btn > span { position: absolute; border-radius: inherit; }
+.gradient-btn .gb-content {
+  position: relative;
+  z-index: 4;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+.gradient-btn .gb-inner {
+  z-index: 3;
+  inset: 2px;
+  background: var(--color-button);
+  transition: opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease;
+}
+.gradient-btn .gb-gloss {
+  z-index: 2;
+  inset: 0;
+  background: radial-gradient(103.46% 134.6% at 64.66% 50%, rgba(217, 217, 217, 0) 27.37%, rgba(217, 217, 217, 0.3));
+}
+.gradient-btn .gb-blobs {
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+}
+.gradient-btn .gb-blobs > span {
+  position: absolute;
+  width: max(100px, 50%);
+  height: 100px;
+  border-radius: 50%;
+  filter: blur(12px);
+  transition: transform 2s ease;
+}
+.gradient-btn:hover .gb-inner,
+.gradient-btn:focus-visible .gb-inner { opacity: 0; transform: scale(0.95); filter: blur(10px); }
+.gradient-btn:hover .gb-blobs,
+.gradient-btn:focus-visible .gb-blobs { transform: scale(0.8); }
 
 .work-list { display: flex; flex-direction: column; gap: 28px; }
 .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
