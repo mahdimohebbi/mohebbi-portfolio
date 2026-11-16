@@ -1,6 +1,7 @@
 import { useEffect, useRef, type AnchorHTMLAttributes } from "react";
 
-const COLORS = ["#02defc", "#7ffe00", "#fdf301", "#f66315", "#fc0197", "#fe9efb"];
+// Warm palette built around the site accent (#ff5c00).
+const COLORS = ["#ffc94d", "#ff9f1c", "#ff5c00", "#ff3b1f", "#cc4900", "#ffd8a8"];
 
 // Pill link with blurred color blobs drifting behind a glossy layer. By default
 // only a thin glowing ring shows; on hover the colors fill the whole button.
