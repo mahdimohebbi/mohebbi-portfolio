@@ -137,6 +137,14 @@
       },
       "items": [
         {
+          "title": "Kinomock",
+          "description": "Device mockups in your browser: put a screenshot into a real photo of a device, or a screen recording onto a 3D device with a moving camera.",
+          "image": "/assets/images/kinomock.webp",
+          "url": "https://kinomock.vercel.app",
+          "label": "Website",
+          "meta": "2026"
+        },
+        {
           "title": "Netlane",
           "description": "A menu bar app that shows your public IP's country flag, live upload and download speed, IP change alerts and a one-click speed test.",
           "image": "/assets/images/netlane.webp",
